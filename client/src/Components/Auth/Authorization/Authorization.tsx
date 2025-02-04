@@ -16,6 +16,7 @@ export const Authorization: React.FC = () => {
 
 	return (
 		<>
+			{/* Доработать КМ */}
 			<div className="authorization__content">
 				<div className="authorization__choose">
 					<Button

@@ -18,8 +18,9 @@ function App() {
 							<LazyHeader />
 							<Routes>
 								<Route path="/" element={<LazyCrm />} />
-								<Route path="auth/regme" element={LazyRegMe} />
-								<Route path="auth/logme" element={LazyLogMe} />
+								{/* Доработать КМ */}
+								<Route path="auth/regme" element={<LazyRegMe />} />
+								<Route path="auth/logme" element={<LazyLogMe />} />
 								<Route path="*" element={<h2>Страница не существует</h2>} />
 							</Routes>
 						</Suspense>
