@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx ts-node server.ts"
+    "dev": "npx tsx server.ts"
   },
   "dependencies": {
     "@types/body-parser": "^1.19.5",

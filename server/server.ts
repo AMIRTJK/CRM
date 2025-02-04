@@ -9,5 +9,5 @@ app.use("/", userRoutes);
 const PORT = 5000;
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на https://localhost:${PORT} порту`);
+  console.log(`Сервер запущен на http://localhost:${PORT} порту`);
 });
