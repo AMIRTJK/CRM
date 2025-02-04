@@ -1,14 +1,31 @@
-import { Button } from "@mui/material";
+import { Form } from "../../UI/Form/Form";
+import "./Logme.css";
 // RTQ
 const Logme: React.FC = () => {
+	const handleLogMe = () => {
+		console.log(`ds`);
+	};
 	return (
 		<>
-			<h2>Logme</h2>
-			<form action="" className="logme__form">
-				<input type="text" className="logme__input" />
-				<input type="text" className="logme__input" />
-				<Button>Войти</Button>
-			</form>
+			<Form
+				classname="logme__form"
+				input={[
+					{
+						inpname: "email",
+						type: "number",
+						placeholder: "Введите email",
+						classname: "logme__input",
+					},
+					{
+						inpname: "email",
+						classname: `logme__input`,
+						type: "password",
+						placeholder: "Введите пароль",
+					},
+				]}
+				btnSubmitText="Войти"
+				onsubmit={handleLogMe}
+			></Form>
 		</>
 	);
 };
