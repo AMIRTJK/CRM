@@ -1,5 +1,16 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true
-  }
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "rootDir": "./server", // Указываем корневую папку исходных файлов
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "server/**/*.ts" // Убедись, что пути корректны для всех файлов .ts
+  ],
+  "exclude": ["node_modules"]
 }
