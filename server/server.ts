@@ -1,12 +1,19 @@
-import express from "express";
+import express, { Request, Response, Router } from "express";
+import createUser from "./routes/users/createUser";
 import userRoutes from "./routes/users";
+import cors from "cors";
+
+const router = Router();
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
-app.use("/", userRoutes);
 
-const PORT = 5000;
+router.use("/", userRoutes);
+app.use(router);
+
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT} порту`);

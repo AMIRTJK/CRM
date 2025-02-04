@@ -7,9 +7,11 @@ import deleteUser from "./deleteUser";
 
 const router = Router();
 
-router.use(getUsers);
-router.use(createUser);
-router.use(updateUser);
-router.use(deleteUser);
+console.log("Маршруты подключаются");
+
+router.get("/users", getUsers);
+router.post("/users", createUser);
+router.put("/users/:id", updateUser);
+router.delete("/users/:id", deleteUser);
 
 export default router;

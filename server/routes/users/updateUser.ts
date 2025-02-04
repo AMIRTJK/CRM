@@ -1,11 +1,9 @@
-import { Router } from "express";
+import { Request, Response } from "express";
 
-const router = Router();
-
-router.put("/users/:id", (req, res) => {
+const updateUser = (req: Request, res: Response) => {
   res.json({
     message: `Пользователь по идентификатору ${req.params.id} обновлен`,
   });
-});
+};
 
-export default router;
+export default updateUser;

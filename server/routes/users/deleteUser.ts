@@ -1,11 +1,9 @@
-import { Router } from "express";
+import { Request, Response } from "express";
 
-const router = Router();
-
-router.delete("/users/:id", (req, res) => {
+const deleteUser = (req: Request, res: Response) => {
   res.json({
     message: `Пользователь по идентификатору ${req.params.id} удален`,
   });
-});
+};
 
-export default router;
+export default deleteUser;
