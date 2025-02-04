@@ -1,0 +1,20 @@
+.header__content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__logo-img {
+	max-width: 60px;
+}
+
+/* Header-right */
+.header__right {
+	display: flex;
+	gap: 30px;
+}
+
+.nav__list {
+	display: flex;
+	gap: 10px;
+}
