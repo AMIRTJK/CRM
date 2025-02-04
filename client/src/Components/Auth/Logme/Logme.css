@@ -1,0 +1,9 @@
+.logme__form {
+	display: flex;
+	flex-direction: column;
+}
+
+.logme__input {
+	display: flex;
+	padding: 20px;
+}
