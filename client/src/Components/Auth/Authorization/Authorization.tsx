@@ -1,6 +1,9 @@
 import { Suspense, useState, lazy } from "react";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router";
+import "./Authorization.css";
 
+// Lazy
 const LazyLogme = lazy(() => import("../Logme/Logme"));
 const LazyRegme = lazy(() => import("../Regme/Regme"));
 export const Authorization: React.FC = () => {
@@ -13,7 +16,7 @@ export const Authorization: React.FC = () => {
 
 	return (
 		<>
-			<div className="Authorization__content">
+			<div className="authorization__content">
 				<div className="authorization__choose">
 					<Button
 						onClick={() => handleSelect(auth === "logme" ? "regme" : "logme")}
@@ -23,7 +26,7 @@ export const Authorization: React.FC = () => {
 				</div>
 				<div className="authorization__components">
 					<Suspense>
-						{auth === "regme" ? <LazyRegme /> : <LazyLogme />}
+						{auth === "regme" ? <LazyLogme /> : <LazyRegme />}
 					</Suspense>
 				</div>
 			</div>
