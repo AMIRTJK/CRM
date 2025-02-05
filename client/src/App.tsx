@@ -22,7 +22,7 @@ function App() {
 								<Route path="/crm" element={<LazyCrm />} />
 								{/* Доработать КМ */}
 								<Route path="/" element={<LazyAuthrozation />} />
-								<Route path="auth" element={<LazyAuthrozation />}>
+								<Route path="/auth" element={<LazyAuthrozation />}>
 									<Route path="regme" element={<LazyRegMe />} />
 									<Route path="logme" element={<LazyLogMe />} />
 								</Route>

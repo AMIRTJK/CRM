@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Button } from "@mui/material";
 import { useNavigate, useLocation, Outlet } from "react-router";
 import "./Authorization.css";
@@ -16,6 +16,11 @@ const Authorization: React.FC = () => {
 		navigate(isRegme ? "/auth/logme" : "/auth/regme");
 	};
 
+	useEffect(() => {
+		if (location.pathname === "/") {
+			navigate("/auth/logme");
+		}
+	}, [location.pathname === "/"]);
 	return (
 		<>
 			{/* Доработать КМ */}
@@ -26,7 +31,9 @@ const Authorization: React.FC = () => {
 					</Button>
 				</div>
 				<div className="authorization__components">
-					<Suspense>{Regme ? <LazyLogme /> : <LazyRegme />}</Suspense>
+					<Outlet />
+
+					{/* <Suspense>{Regme ? <LazyLogme /> : <LazyRegme />}</Suspense> */}
 				</div>
 			</div>
 		</>
