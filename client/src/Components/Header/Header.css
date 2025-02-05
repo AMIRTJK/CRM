@@ -2,6 +2,12 @@ header {
   background-color: #fff;
 }
 
+.wrapper-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .header__content {
   display: flex;
   align-items: center;

@@ -44,18 +44,20 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="header__content">
             {/* Логотип */}
-            <div className="header__logo">
-              <Link to="/crm" className="header__logo-link">
+            <Link to="/crm" className="header__logo-link">
+              <div className="wrapper-header-logo">
                 <img
                   className="header__logo-img header__logo--img"
                   src={headerLogo}
                   alt="header-logo"
                 />
-              </Link>
-              <span className="header__logo-text">
-                Информационная система Электронного документооборота
-              </span>
-            </div>
+                <div className="header__logo">
+                  <span className="header__logo-text">
+                    Информационная система Электронного документооборота
+                  </span>
+                </div>
+              </div>
+            </Link>
 
             {/* Навигация */}
             <nav className="header__nav">

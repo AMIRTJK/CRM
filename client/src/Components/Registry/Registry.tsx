@@ -1,8 +1,8 @@
 import React from "react";
-import "./ListOrganization.css";
+import "./Registry.css";
 import { dataFilter } from "../../API/data/dataFilter";
 
-const ListOrganization = () => {
+const Registry = () => {
   const headers = dataFilter
     .filter((e) => {
       return [
@@ -38,7 +38,7 @@ const ListOrganization = () => {
       "789",
       "Организация №3",
       "987654321",
-      "Государственная организация",
+      "Министерство финансов",
       "Активный",
     ],
   ];
@@ -82,7 +82,4 @@ const ListOrganization = () => {
   );
 };
 
-export default ListOrganization;
-
-
-
+export default Registry;

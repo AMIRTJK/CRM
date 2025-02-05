@@ -1,14 +1,11 @@
 .flex-table {
   display: flex;
-  flex-direction: column; /* Сначала вертикально для заголовков и строк */
-  /* border: 1px solid #ccc; */
+  flex-direction: column;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 .flex-table-header {
   display: flex;
-  /* background-color: #f5f5f5; */
   font-weight: bold;
   padding: 10px 0;
 }
@@ -26,7 +23,7 @@
 
 .flex-table-body {
   display: flex;
-  flex-direction: column; /* Каждая строка будет вертикальной */
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -36,16 +33,22 @@
   border: 1px solid #d8d8d8;
   padding: 20px;
   border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.flex-row:hover {
+  background-color: #ededed;
 }
 
 .flex-cell {
-  flex: 1; /* Делает все ячейки одинаковой ширины */
+  flex: 1;
   padding: 10px 30px;
   text-align: start;
   border-right: 2px dotted #d8d8d8;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  min-height: 60px;
+  display: flex;
+  align-items: center;
 }
 
 .flex-cell:last-child {
@@ -58,6 +61,7 @@
   border-radius: 15px;
   text-align: center;
   font-weight: 500;
+  width: 100%;
 }
 
 .active-status {

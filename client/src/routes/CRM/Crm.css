@@ -1,8 +1,9 @@
 section {
   background-color: #fff;
-  padding: 20px;
+  padding: 20px 28px;
   border-radius: 10px;
   margin-bottom: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .submodule-crm {
@@ -14,15 +15,15 @@ section {
   font-size: 20px;
 }
 
-.panel-control {
+.panel-control-filter {
   display: flex;
   align-items: start;
   justify-content: space-between;
   gap: 15px;
 }
 
-.panel-control button {
-  width: 10%;
+.panel-control-filter button {
+  width: 100%;
   padding: 15px;
   border-radius: 15px;
   border: none;
@@ -35,6 +36,10 @@ section {
   cursor: pointer;
 }
 
-.panel-control button:hover {
+.panel-control-filter button a {
+  color: #fff;
+}
+
+.panel-control-filter button:hover {
   opacity: 90%;
 }
