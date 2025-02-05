@@ -3,6 +3,10 @@ table {
   border-collapse: collapse;
 }
 
+.table-registry thead tr th {
+  color: var(--primary-color);
+}
+
 .table-registry thead tr th,
 .table-registry tbody tr td {
   text-align: start;
@@ -10,7 +14,7 @@ table {
 }
 
 .table-registry tbody tr {
-  border: 2px solid red;
+  border: 2px solid rgba(0, 0, 0, 0.12);
 }
 
 .table-registry tbody tr td {

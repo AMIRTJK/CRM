@@ -2,7 +2,8 @@ import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
 import "./App.css";
 import { Loader } from "./UI/Loader/Loader";
-const LazyHeader = lazy(() => import("./components/Header/Header"));
+import Header from "./components/Header/Header";
+
 const LazyAuthrozation = lazy(
   () => import("./routes/Auth/Authorization/Authorization")
 );
@@ -14,10 +15,10 @@ function App() {
   return (
     <>
       <div className="section-offset">
+        <Header />
         <div className="container">
           <div className="app__content">
             <Suspense fallback={<Loader />}>
-              <LazyHeader />
               <Routes>
                 <Route path="/crm" element={<LazyCrm />} />
                 {/* Доработать КМ */}
