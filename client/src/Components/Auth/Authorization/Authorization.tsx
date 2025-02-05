@@ -1,17 +1,17 @@
-import { Suspense, useState, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation, Outlet } from "react-router";
 import "./Authorization.css";
 
 // Lazy
-const LazyLogme = lazy(() => import("../Logme/Logme"));
-const LazyRegme = lazy(() => import("../Regme/Regme"));
-export const Authorization: React.FC = () => {
-	const [auth, setAuth] = useState<string>("logme");
 
-	const handleSelect = (authState: string) => {
-		setAuth(authState);
-		console.log(auth);
+const Authorization: React.FC = () => {
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	const isRegme = location.pathname === "/auth/regme";
+	const handleSelect = () => {
+		navigate(isRegme ? "/auth/logme" : "/auth/regme");
 	};
 
 	return (
@@ -19,18 +19,18 @@ export const Authorization: React.FC = () => {
 			{/* Доработать КМ */}
 			<div className="authorization__content">
 				<div className="authorization__choose">
-					<Button
-						onClick={() => handleSelect(auth === "logme" ? "regme" : "logme")}
-					>
-						{auth === "regme" ? "Зарегистрироваться" : "Войти"}
+					<Button onClick={handleSelect}>
+						{isRegme ? `Войти` : `Зарегистрироваться`}
 					</Button>
 				</div>
 				<div className="authorization__components">
 					<Suspense>
-						{auth === "regme" ? <LazyLogme /> : <LazyRegme />}
+						<Outlet />
 					</Suspense>
 				</div>
 			</div>
 		</>
 	);
 };
+
+export default Authorization;
