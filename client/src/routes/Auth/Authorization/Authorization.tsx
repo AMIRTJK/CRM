@@ -1,12 +1,9 @@
-import { Suspense, lazy, useEffect } from "react";
+import { useEffect } from "react";
 import { Button } from "@mui/material";
 import { useNavigate, useLocation, Outlet } from "react-router";
 import "./Authorization.css";
-import Regme from "../Regme/Regme";
 
 // Lazy
-const LazyLogme = lazy(() => import("../Logme/Logme"));
-const LazyRegme = lazy(() => import("../Regme/Regme"));
 const Authorization: React.FC = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
@@ -32,8 +29,6 @@ const Authorization: React.FC = () => {
 				</div>
 				<div className="authorization__components">
 					<Outlet />
-
-					{/* <Suspense>{Regme ? <LazyLogme /> : <LazyRegme />}</Suspense> */}
 				</div>
 			</div>
 		</>

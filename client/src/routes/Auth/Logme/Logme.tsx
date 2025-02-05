@@ -13,13 +13,13 @@ const Logme: React.FC = () => {
         classname="logme__form"
         input={[
           {
-            inpname: "email",
+            name: "email",
             type: "number",
             placeholder: "Введите email",
             classname: "logme__input",
           },
           {
-            inpname: "email",
+            name: "email",
             classname: `logme__input`,
             type: "password",
             placeholder: "Введите пароль",
