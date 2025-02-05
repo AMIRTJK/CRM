@@ -2,7 +2,7 @@ import React from "react";
 import "./Crm.css";
 import Filter from "../../components/Filter/Filter";
 import { dataFilter } from "../../API/data/dataFilter";
-import TableRegistry from "../../components/Table of Registry/TableRegistry";
+import ListOrganization from "../../components/List of organization in Registry/ListOrganization";
 
 const Crm = () => {
   return (
@@ -16,7 +16,7 @@ const Crm = () => {
       </section>
       <section>
         <div className="registry">
-          <TableRegistry />
+          <ListOrganization />
         </div>
       </section>
     </main>
