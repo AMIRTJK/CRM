@@ -1,10 +1,10 @@
 .section-offset {
-	padding-top: 15px;
-	padding-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .container {
-	max-width: 1920px;
-	padding: 0 70px;
-	margin: 0 auto;
+  max-width: 1536px;
+  padding: 0 25px;
+  margin: 0 auto;
 }
