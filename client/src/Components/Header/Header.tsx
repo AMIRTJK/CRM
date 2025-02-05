@@ -39,95 +39,121 @@ const Header: React.FC = () => {
 	const defName = "Кимки Кимкиев";
 
 	return (
-		<div className="header__content">
-			{/* Логотип */}
-			<div className="header__logo">
-				<Link to="/" className="header__logo-link">
-					<img
-						className="header__logo-img header__logo--img"
-						src={headerLogo}
-						alt="header-logo"
-					/>
-				</Link>
-			</div>
+		<>
+			<div className="header__content">
+				{/* Логотип */}
+				<div className="header__logo">
+					<Link to="/" className="header__logo-link">
+						<img
+							className="header__logo-img header__logo--img"
+							src={headerLogo}
+							alt="header-logo"
+						/>
+					</Link>
+					<span className="header__logo-text">
+						Информационная система Электронного документооборота
+					</span>
+				</div>
 
-			{/* Навигация */}
-			<nav className="header__nav">
-				<ul className="nav__list">
-					<li className="nav__item">
-						<Link to="/route1" className="nav__item--link">
-							Все услуги
-						</Link>
-					</li>
-					<li className="nav__item">
-						<Link to="/route2" className="nav__item--link">
-							Видеоинструкции
-						</Link>
-					</li>
-					<li className="nav__item">
-						<Link to="/route3" className="nav__item--link">
-							Телефон горячей линии
-						</Link>
-					</li>
-				</ul>
-			</nav>
+				{/* Навигация */}
+				<nav className="header__nav">
+					<ul className="nav__list">
+						<li className="nav__item">
+							<Link to="/route1" className="nav__item--link">
+								Все услуги
+							</Link>
+						</li>
+						<li className="nav__item">
+							<Link to="/route2" className="nav__item--link">
+								Видеоинструкции
+							</Link>
+						</li>
+						<li className="nav__item">
+							<Link to="/route3" className="nav__item--link">
+								Телефон горячей линии
+							</Link>
+						</li>
+					</ul>
+				</nav>
 
-			{/* Меню пользователя */}
-			<div className="header__right">
-				<svg
-					width="40px"
-					height="40px"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<g>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth="2"
-							d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-						></path>
-					</g>
-				</svg>
-				<Box sx={{ flexGrow: 0 }}>
-					<Tooltip title="Открыть настройки">
-						<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-							<Avatar alt="User Avatar" src={defName} />
-						</IconButton>
-					</Tooltip>
-
-					{/* Выпадающее меню */}
-					<Menu
-						sx={{
-							mt: "45px", // Выставление отступа меню
-							"& .MuiMenu-paper": {
-								padding: "0 10px",
-								borderRadius: "7px",
-								border: "1px solid #0000000f",
-								boxShadow:
-									" 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-							},
-						}}
-						id="menu-appbar"
-						anchorEl={anchorElUser}
-						anchorOrigin={{
-							vertical: "top",
-							horizontal: "right",
-						}}
-						keepMounted
-						transformOrigin={{
-							vertical: "top",
-							horizontal: "right",
-						}}
-						open={Boolean(anchorElUser)}
-						onClose={handleCloseUserMenu}
+				{/* Меню пользователя */}
+				<div className="header__right">
+					<svg
+						width="40px"
+						height="40px"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						xmlns="http://www.w3.org/2000/svg"
 					>
-						{/* Пункт "Профиль" */}
-						<Link to="/uprofile/udetails" className="nav__log-account">
+						<g>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
+								d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+							></path>
+						</g>
+					</svg>
+					<Box sx={{ flexGrow: 0 }}>
+						<Tooltip title="Открыть настройки" className="header__tooltip">
+							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+								<Avatar alt="User Avatar" src={defName} />
+								<p className="header__right-uname">test-name</p>
+							</IconButton>
+						</Tooltip>
+
+						{/* Выпадающее меню */}
+						<Menu
+							sx={{
+								mt: "45px", // Выставление отступа меню
+								"& .MuiMenu-paper": {
+									padding: "0 10px",
+									borderRadius: "7px",
+									border: "1px solid #0000000f",
+									boxShadow:
+										" 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+								},
+							}}
+							id="menu-appbar"
+							anchorEl={anchorElUser}
+							anchorOrigin={{
+								vertical: "top",
+								horizontal: "right",
+							}}
+							keepMounted
+							transformOrigin={{
+								vertical: "top",
+								horizontal: "right",
+							}}
+							open={Boolean(anchorElUser)}
+							onClose={handleCloseUserMenu}
+						>
+							{/* Пункт "Профиль" */}
+							<Link to="/uprofile/udetails" className="nav__log-account">
+								<MenuItem
+									onClick={handleCloseUserMenu}
+									sx={{
+										p: 0,
+										minWidth: "200px",
+										display: "flex",
+										alignItems: "center",
+										gap: "5px",
+										padding: "5px",
+										borderRadius: "10px",
+										borderBottom: "1px solid #00000015",
+									}}
+								>
+									<AccountCircleOutlinedIcon sx={{ color: "#6DACF9" }} />
+									<Typography sx={{ width: "100%", textAlign: "start", p: 1 }}>
+										Профиль
+									</Typography>
+								</MenuItem>
+							</Link>
+
+							{/* Пункт "Выход" */}
 							<MenuItem
-								onClick={handleCloseUserMenu}
+								onClick={handleLogout}
 								sx={{
 									p: 0,
 									minWidth: "200px",
@@ -136,38 +162,19 @@ const Header: React.FC = () => {
 									gap: "5px",
 									padding: "5px",
 									borderRadius: "10px",
-									borderBottom: "1px solid #00000015",
 								}}
 							>
-								<AccountCircleOutlinedIcon sx={{ color: "#6DACF9" }} />
+								<LogoutIcon sx={{ color: "#6DACF9" }} />
 								<Typography sx={{ width: "100%", textAlign: "start", p: 1 }}>
-									Профиль
+									Выход
 								</Typography>
 							</MenuItem>
-						</Link>
-
-						{/* Пункт "Выход" */}
-						<MenuItem
-							onClick={handleLogout}
-							sx={{
-								p: 0,
-								minWidth: "200px",
-								display: "flex",
-								alignItems: "center",
-								gap: "5px",
-								padding: "5px",
-								borderRadius: "10px",
-							}}
-						>
-							<LogoutIcon sx={{ color: "#6DACF9" }} />
-							<Typography sx={{ width: "100%", textAlign: "start", p: 1 }}>
-								Выход
-							</Typography>
-						</MenuItem>
-					</Menu>
-				</Box>
+						</Menu>
+					</Box>
+				</div>
 			</div>
-		</div>
+			<span className="header-bottom-line"></span>
+		</>
 	);
 };
 

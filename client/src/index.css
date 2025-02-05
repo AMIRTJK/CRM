@@ -365,9 +365,14 @@ template {
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
+	margin: 0;
 }
 
 a {
   text-decoration: none;
+}
+
+p {
+	margin: 0;
 }

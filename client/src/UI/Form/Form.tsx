@@ -1,55 +1,26 @@
-import { useForm } from "react-hook-form";
-import { Button } from "@mui/material";
-import { useNavigate } from "react-router";
-
 export interface FormProps {
-  classname: string;
-  onclick: (e: React.MouseEvent<HTMLElement>) => void;
-  onsubmit: (data) => void;
-  input: {
-    inpname: string;
-    classname: string;
-    type?: string;
-    placeholder?: string;
-  }[];
-  btnSubmitText: string;
+	input: { name: string; type?: string; placeholder?: string; classname }[];
+	classname?: string;
+	onsubmit: (data) => void;
+	sbtName: string;
 }
 
-export const Form: React.FC<FormProps> = ({
-  classname,
-  input,
-  onsubmit,
-  btnSubmitText,
-}) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const navigate = useNavigate();
-
-  return (
-    <>
-      <form onSubmit={handleSubmit(onsubmit)} className={classname}>
-        {input.map(({ inpname, type, placeholder, classname }) => (
-          <>
-            <input
-              key={inpname}
-              className={classname}
-              type={type}
-              placeholder={placeholder}
-              {...register(inpname, {
-                required: true,
-              })}
-            />
-            {errors[inpname] && <small>{errors[inpname]?.message}</small>}
-          </>
-        ))}
-        <Button onClick={() => navigate("/crm")}>
-          {btnSubmitText || "Отправить"}
-        </Button>
-      </form>
-    </>
-  );
+export const Form: React.FC<FormProps> = ({ input, classname, onsubmit,sbtName }) => {
+	return (
+		<>
+			<form className={classname} onSubmit={onsubmit}>
+				{input?.map(({ name, type, placeholder, classname }) => (
+					<>
+						<input
+							name={name}
+							type={type}
+							className={classname}
+							placeholder={placeholder}
+						/>
+					</>
+				))}
+				<button>{sbtName || "Отправить"}</button>
+			</form>
+		</>
+	);
 };
