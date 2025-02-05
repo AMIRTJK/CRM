@@ -8,6 +8,7 @@
 
 :root {
   --primary-color: #607d8b;
+  --background-color: #f7f7fc;
 }
 
 * {
@@ -36,6 +37,7 @@ html {
 
 body {
   margin: 0;
+  background-color: #f7f7fc;
 }
 
 /**
@@ -365,8 +367,8 @@ template {
 }
 
 ul {
-	list-style-type: none;
-	margin: 0;
+  list-style-type: none;
+  margin: 0;
 }
 
 a {
@@ -374,5 +376,5 @@ a {
 }
 
 p {
-	margin: 0;
+  margin: 0;
 }

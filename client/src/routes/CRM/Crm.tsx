@@ -7,14 +7,18 @@ import TableRegistry from "../../components/Table of Registry/TableRegistry";
 const Crm = () => {
   return (
     <main className="submodule-crm">
-      <h1 className="module-title">Реестр</h1>
-      <div className="panel-control">
-        <Filter data={dataFilter} />
-        <button>Добавить</button>
-      </div>
-      <div className="registry">
-        <TableRegistry />
-      </div>
+      <section>
+        <h1 className="module-title">Реестр</h1>
+        <div className="panel-control">
+          <Filter data={dataFilter} />
+          <button>Добавить</button>
+        </div>
+      </section>
+      <section>
+        <div className="registry">
+          <TableRegistry />
+        </div>
+      </section>
     </main>
   );
 };

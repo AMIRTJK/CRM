@@ -3,7 +3,7 @@ import "./TableRegistry.css";
 
 const TableRegistry = () => {
   return (
-    <table>
+    <table className="table-registry">
       <thead>
         <tr>
           <th>№</th>
@@ -14,6 +14,16 @@ const TableRegistry = () => {
           <th>Статус</th>
         </tr>
       </thead>
+      <tbody>
+        <tr>
+          <td>7</td>
+          <td>432</td>
+          <td>Организация №1</td>
+          <td>150003418</td>
+          <td>Бюджетная организация</td>
+          <td>Активный</td>
+        </tr>
+      </tbody>
     </table>
   );
 };
