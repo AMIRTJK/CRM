@@ -1,18 +1,10 @@
 import { Button } from "@mui/material";
 import { createUser } from "../../../API/users/createUser";
-import { QueryClient, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import { queryClient } from "../../../queryClient";
 import "./Regme.css";
 // RTQ
 const Regme: React.FC = () => {
-	const queryClient = new QueryClient({
-		defaultOptions: {
-			queries: {
-				refetchOnWindowFocus: true,
-				retry: 0,
-			},
-		},
-	});
-
 	const newUser = {
 		login: "Amir",
 	};
