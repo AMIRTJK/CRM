@@ -29,7 +29,7 @@ const Logme: React.FC = () => {
 					},
 				]}
 				sbtName="Войти"
-				onsubmit={handleLogMe}
+				// onsubmit={handleLogMe}
 				btnClassname="btn"
 			></Form>
 		</>

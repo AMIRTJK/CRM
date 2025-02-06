@@ -3,10 +3,10 @@ import "./PanelControl.css";
 import { Button } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SaveIcon from "@mui/icons-material/Save";
-import DoneIcon from "@mui/icons-material/Done";
+import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate } from "react-router";
 
-const PanelControl = () => {
+const PanelControl = ({ handleSubmit }: any) => {
   const navigate = useNavigate();
 
   return (
@@ -27,6 +27,20 @@ const PanelControl = () => {
       </div>
       <div className="action-buttons">
         <Button
+          disabled={true}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            borderRadius: "20px",
+          }}
+          variant="text"
+        >
+          <EditIcon /> <p>Редактировать</p>
+        </Button>
+        <Button
+          onClick={handleSubmit}
+          type="submit"
           sx={{
             display: "flex",
             alignItems: "center",
@@ -36,17 +50,6 @@ const PanelControl = () => {
           variant="text"
         >
           <SaveIcon /> <p>Сохранить</p>
-        </Button>
-        <Button
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            borderRadius: "20px",
-          }}
-          variant="text"
-        >
-          <DoneIcon /> <p>Создать</p>
         </Button>
       </div>
     </div>

@@ -17,12 +17,23 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  align-items: end;
 }
 
-.wrapper-form-elements {
-  display: flex;
-  align-items: center;
+/* Применяем ширину для элемента MuiStack-root */
+.MuiStack-root.css-10o2lyd-MuiStack-root {
   width: 48%;
+  height: 100%;
+}
+
+/* Применяем ширину для элемента MuiFormControl-root и MuiTextField-root */
+.MuiFormControl-root.MuiTextField-root.css-17w7vnp-MuiFormControl-root-MuiTextField-root {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper-documents {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  margin-top: -5px;
 }
