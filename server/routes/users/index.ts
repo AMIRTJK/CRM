@@ -10,7 +10,7 @@ const router = Router();
 console.log("Маршруты подключаются");
 
 router.get("/users", getUsers);
-router.post("/users", createUser);
+router.post("/regme", createUser);
 router.put("/users/:id", updateUser);
 router.delete("/users/:id", deleteUser);
 
