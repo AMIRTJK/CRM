@@ -1,7 +1,19 @@
 .authorization__content {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+}
+.authorization__form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: var(--background-color);
+	padding: 20px 40px 0 40px;
+	min-height: 220px;
+	border-radius: 30px;
+}
+
+.authorization__form > :nth-child(1) {
+	margin-bottom: 8px;
 }

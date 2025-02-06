@@ -1,11 +1,23 @@
 export interface FormProps {
-	input: { name: string; type?: string; placeholder?: string; classname }[];
+	input: {
+		name: string;
+		type?: string;
+		placeholder?: string;
+		classname: string;
+	}[];
 	classname?: string;
 	onsubmit: (data) => void;
 	sbtName: string;
+	btnClassname: string;
 }
 
-export const Form: React.FC<FormProps> = ({ input, classname, onsubmit,sbtName }) => {
+export const Form: React.FC<FormProps> = ({
+	input,
+	classname,
+	onsubmit,
+	sbtName,
+	btnClassname,
+}) => {
 	return (
 		<>
 			<form className={classname} onSubmit={onsubmit}>
@@ -19,7 +31,7 @@ export const Form: React.FC<FormProps> = ({ input, classname, onsubmit,sbtName }
 						/>
 					</>
 				))}
-				<button>{sbtName || "Отправить"}</button>
+				<button className={btnClassname}>{sbtName || "Отправить"}</button>
 			</form>
 		</>
 	);
