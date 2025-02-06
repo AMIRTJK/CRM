@@ -1,11 +1,14 @@
 import { Form } from "../../../UI/Form/Form";
 import "./Logme.css";
 import { useMutation } from "@tanstack/react-query";
+import { useAuth } from "../../../API/services/hooks/useAuth";
 // RTQ
 const Logme: React.FC = () => {
-	const handleLogMe = () => {
-		console.log(`ds`);
-	};
+	const { logMe } = useAuth();
+	const logMeMutation = useMutation({
+		mutationFn: () => logMe(data),
+		onSuccess: () => console.log(`Успешно`),
+	});
 
 	return (
 		<>

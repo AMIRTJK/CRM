@@ -1,5 +1,5 @@
 import { LogmeProps } from "../users/logMe";
-
+import { RegmeProps } from "../users/createUser";
 export const useAuth = () => {
 	const logMe = async (data: LogmeProps): Promise<void> => {
 		return await fetch(`http://localhost:3000/logme`, {
@@ -20,7 +20,30 @@ export const useAuth = () => {
 				localStorage.setItem("token", resData.token);
 			});
 	};
+
+	const regMe = async (newUser: RegmeProps): Promise<void> => {
+		try {
+			const response = await fetch("http://localhost:3000/regme", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(newUser),
+			});
+			if (!response.ok) {
+				throw new Error(`Error on createUser`);
+			}
+			console.log(response);
+
+			return response.json();
+		} catch (error) {
+			console.error("Error:", error);
+			throw error;
+		}
+	};
+
 	return {
 		logMe,
+		regMe,
 	};
 };
