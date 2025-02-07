@@ -1,4 +1,6 @@
 .section-offset {
+}
+.main-bg {
 	background: linear-gradient(
 		90deg,
 		rgb(243, 231, 233) 0%,
@@ -6,7 +8,6 @@
 		rgb(227, 238, 255) 100%
 	);
 }
-
 .container {
 	max-width: 1536px;
 	padding: 0 25px;
