@@ -1,7 +1,7 @@
 import { Form } from "../../../UI/Form/Form";
-import "./Logme.css";
 import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "../../../API/services/hooks/useAuth";
+import "./Logme.css";
 // RTQ
 const Logme: React.FC = () => {
 	const { logMe } = useAuth();
@@ -28,9 +28,9 @@ const Logme: React.FC = () => {
 						placeholder: "Введите пароль",
 					},
 				]}
-				sbtName="Войти"
+				sbtName="Войти 2"
 				// onsubmit={handleLogMe}
-				btnClassname="btn"
+				btnClassname="btn-mui logme__form-btn "
 			></Form>
 		</>
 	);
