@@ -1,11 +1,13 @@
 import { Button } from "@mui/material";
-import { createUser } from "../../../API/services/users/createUser";
+// import { createUser } from "../../../API/services/users/createUser";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../../queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../../API/services/hooks/useAuth";
+import { Form } from "../../../UI/Form/Form";
 
 import "./Regme.css";
+import "../../../App.css";
 // RTQ
 const Regme: React.FC = () => {
 	const { regMe } = useAuth();
@@ -30,14 +32,33 @@ const Regme: React.FC = () => {
 		createUserMutate.mutate();
 	};
 
+	// Regme sbt
+	const handleRegme = async (e: React.FormEvent): Promise<void> => {
+		e.preventDefault();
+	};
+
 	return (
 		<>
-			<form className="regme__form">
-				<input type="text" className="regme__input" />
-				<input type="text" className="regme__input" />
-				<input type="text" className="regme__input" />
-				<Button onClick={onSubmit}>Зарегистрироваться</Button>
-			</form>
+			<Form
+				classname="regme__form"
+				input={[
+					{
+						name: "login",
+						type: "text",
+						placeholder: "Логин",
+						classname: "input regme__input",
+					},
+					{
+						name: "password",
+						type: "password",
+						placeholder: "Введите пароль",
+						classname: "input regme__input",
+					},
+				]}
+				sbtName="Зарегистрироваться"
+				btnClassname="btn-mui regme__sbt"
+				onsubmit={handleRegme}
+			></Form>
 		</>
 	);
 };

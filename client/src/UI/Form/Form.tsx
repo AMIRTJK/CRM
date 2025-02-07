@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 export interface FormProps {
 	input: {
 		name: string;
@@ -6,9 +7,9 @@ export interface FormProps {
 		classname: string;
 	}[];
 	classname?: string;
-	onsubmit: (data) => void;
+	onsubmit: (data: React.FormEvent) => void;
 	sbtName: string;
-	btnClassname: string;
+	btnClassname?: string;
 }
 
 export const Form: React.FC<FormProps> = ({
@@ -31,8 +32,10 @@ export const Form: React.FC<FormProps> = ({
 						/>
 					</>
 				))}
-				<button className={btnClassname}>{sbtName || "Отправить"}</button>
 			</form>
+			<Button type="submit" className={btnClassname}>
+				{sbtName || "Отправить"}
+			</Button>
 		</>
 	);
 };
