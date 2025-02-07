@@ -80,5 +80,24 @@
     "bz": [],
     "details": [],
     "status": "Активный"
+  },
+  {
+    "files": [],
+    "id": "e9f9de9e-9df5-4a31-b020-180ce9bb716e",
+    "tax": "c432",
+    "identificator": "c4234c",
+    "name": "4c23",
+    "docNo": "",
+    "address": "",
+    "terCode": "",
+    "unitAccountingTer": "",
+    "grbsResonsible": "",
+    "grbs": "",
+    "pbs": "",
+    "categoryBudget": "",
+    "orgType": "Бюджетная организация",
+    "bz": [],
+    "details": [],
+    "status": "Активный"
   }
 ]

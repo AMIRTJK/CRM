@@ -8,6 +8,7 @@ import { getOrganizationById } from "../../../API/services/organizations/getOrga
 import PanelControl from "../../../UI/Panel Control/PanelControl";
 import "./ShowCRM.css";
 import TitleSection from "../../../UI/Title of Section/TitleSection";
+import CardOrganization from "../../../UI/Card of Organization/CardOrganization";
 
 const ShowCRM = () => {
   const { id: orgId } = useParams();
@@ -35,6 +36,11 @@ const ShowCRM = () => {
     <main className="show-crm">
       <TitleSection title={organizationsById?.name} />
       <PanelControl editButtonState={false} saveButtonState={true} />
+      <TitleSection title="Карточка организации" />
+      <section>
+        <CardOrganization item={organizationsById} />
+      </section>
+      <TitleSection title="Данные по модулям" />
       <section></section>
     </main>
   );
