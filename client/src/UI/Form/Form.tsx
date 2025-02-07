@@ -32,10 +32,10 @@ export const Form: React.FC<FormProps> = ({
 						/>
 					</>
 				))}
-				<Button type="submit" className={btnClassname}>
-					{sbtName || "Отправить"}
-				</Button>
 			</form>
+			<Button type="submit" className={btnClassname}>
+				{sbtName || "Отправить"}
+			</Button>
 		</>
 	);
 };

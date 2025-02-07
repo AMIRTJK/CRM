@@ -20,13 +20,11 @@ const Authorization: React.FC = () => {
 	}, [location.pathname === "/"]);
 	return (
 		<div className="authorization__content">
+			<Button className="btn" onClick={handleSelect}>
+				{isRegme ? `Войти` : `Зарегистрироваться`}
+			</Button>
 			<div className="authorization__form">
-				<Button className="btn" onClick={handleSelect}>
-					{isRegme ? `Войти` : `Зарегистрироваться`}
-				</Button>
-				<div className="authorization__components">
-					<Outlet />
-				</div>
+				<Outlet />
 			</div>
 		</div>
 	);
