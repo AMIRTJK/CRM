@@ -5,7 +5,12 @@ import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
 
-const FileList = ({ item }: any) => {
+interface FileListProps {
+  item: File;
+  onDelete: () => void;
+}
+
+const FileList = ({ item, onDelete }: FileListProps) => {
   const typeOfFile = item.name.split(".");
 
   return (
@@ -19,7 +24,7 @@ const FileList = ({ item }: any) => {
         {/* <PictureAsPdfIcon /> */}
         <p className="file-list__info-title">{item.name}</p>
       </div>
-      <IconButton>
+      <IconButton onClick={onDelete}>
         <DeleteIcon />
       </IconButton>
     </div>

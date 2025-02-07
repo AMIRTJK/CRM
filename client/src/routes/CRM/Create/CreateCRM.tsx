@@ -62,6 +62,16 @@ const CreateCRM = () => {
   };
 
   console.log(formValues);
+  console.log(getValues("files"));
+
+  // Функция для удаления файла по индексу
+  const handleDelete = (fileIndex: number) => {
+    const currentFiles = getValues("files") || [];
+    const updatedFiles = currentFiles.filter(
+      (_: any, index: number) => index !== fileIndex
+    );
+    setValue("files", updatedFiles);
+  };
 
   return (
     <main className="create-crm">
@@ -260,9 +270,14 @@ const CreateCRM = () => {
       <section>
         <div className="wrapper-documents">
           <InputFile setValue={setValue} getValues={getValues} />
-          {formValues.files.map((e) => {
-            return <FileList item={e} />;
-          })}
+          {formValues.files &&
+            formValues.files.map((file: File, index: number) => (
+              <FileList
+                key={index}
+                item={file}
+                onDelete={() => handleDelete(index)}
+              />
+            ))}
         </div>
       </section>
     </main>
