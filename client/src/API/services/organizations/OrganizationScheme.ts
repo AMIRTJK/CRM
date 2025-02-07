@@ -1,6 +1,7 @@
 import { Dayjs } from "dayjs";
 
 export interface OrganizationScheme {
+  id?: string | number;
   tax: string;
   identificator: string;
   name: string;
@@ -23,4 +24,5 @@ export interface OrganizationScheme {
   categoryBudget: string;
   orgType: string;
   files: File[];
+  status: string;
 }

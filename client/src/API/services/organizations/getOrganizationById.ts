@@ -1,8 +1,8 @@
 const API = "http://localhost:3000";
 
-export const getOrganizations = async () => {
+export const getOrganizationById = async (orgId: string | number) => {
   try {
-    const response = await fetch(`${API}/organizations`);
+    const response = await fetch(`${API}/organizations/${orgId}`);
     if (!response.ok) {
       throw new Error("Ошибка в запросе getOrganizations");
     }

@@ -4,13 +4,17 @@ import { useParams } from "react-router";
 import { getOrganizations } from "../../../API/services/organizations/getOrganizations";
 import { queryClient } from "../../../API/hooks/queryClient";
 import { OrganizationScheme } from "../../../API/services/organizations/OrganizationScheme";
+import { getOrganizationById } from "../../../API/services/organizations/getOrganizationById";
+import PanelControl from "../../../UI/Panel Control/PanelControl";
+import "./ShowCRM.css";
+import TitleSection from "../../../UI/Title of Section/TitleSection";
 
 const ShowCRM = () => {
   const { id: orgId } = useParams();
 
   const getOrganizationsQuery = useQuery(
     {
-      queryFn: () => getOrganizations(orgId),
+      queryFn: () => getOrganizationById(orgId),
       queryKey: [`organizations-${orgId}`],
     },
     queryClient
@@ -27,9 +31,13 @@ const ShowCRM = () => {
     }
   }, [getOrganizationsQuery]);
 
-  console.log(organizationsById);
-
-  return <div>{orgId}</div>;
+  return (
+    <main className="show-crm">
+      <TitleSection title={organizationsById?.name} />
+      <PanelControl editButtonState={false} saveButtonState={true} />
+      <section></section>
+    </main>
+  );
 };
 
 export default ShowCRM;

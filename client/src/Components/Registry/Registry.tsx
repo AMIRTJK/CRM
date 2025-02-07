@@ -1,8 +1,14 @@
 import React from "react";
 import "./Registry.css";
 import { dataFilter } from "../../API/data/dataFilter";
+import { OrganizationScheme } from "../../API/services/organizations/OrganizationScheme";
+import { Link, useNavigate } from "react-router";
 
-const Registry = () => {
+interface TProps {
+  data: OrganizationScheme[];
+}
+
+const Registry = ({ data }: TProps) => {
   const headers = dataFilter
     .filter((e) => {
       return [
@@ -16,32 +22,17 @@ const Registry = () => {
     })
     .map((e) => e.title);
 
-  const rows = [
-    [
-      "1",
-      "432",
-      "Организация №1",
-      "150003418",
-      "Бюджетная организация",
-      "Активный",
-    ],
-    [
-      "2",
-      "123",
-      "Организация №2",
-      "123456789",
-      "Коммерческая организация",
-      "Неактивный",
-    ],
-    [
-      "3",
-      "789",
-      "Организация №3",
-      "987654321",
-      "Министерство финансов",
-      "Активный",
-    ],
-  ];
+  console.log(data);
+
+  const rows = data.map((org: OrganizationScheme, index) => [
+    org.id, // Добавляем id в начало строки, но не отображаем его
+    index + 1, // Номер списка
+    org.identificator, // Идентификатор
+    org.name, // Наименование
+    org.tax, // ИНН организации
+    org.orgType, // Тип организации
+    org.status, // Статус
+  ]);
 
   return (
     <div className="flex-table">
@@ -59,23 +50,32 @@ const Registry = () => {
       {/* Строки */}
       <div className="flex-table-body">
         {rows.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex-row">
-            {row.map((cell, cellIndex) => (
-              <div key={cellIndex} className="flex-cell">
-                <p
-                  className={
-                    cell === "Активный"
-                      ? "active-status"
-                      : cell === "Неактивный"
-                      ? "inactive-status"
-                      : ""
-                  }
-                >
-                  {cell}
-                </p>
-              </div>
-            ))}
-          </div>
+          <Link key={rowIndex} to={`show/${row[0]}`}>
+            {" "}
+            {/* Используем id для навигации */}
+            <div className="flex-row">
+              {row.slice(1).map(
+                (
+                  cell,
+                  cellIndex // Пропускаем id, чтобы не отображать его в таблице
+                ) => (
+                  <div key={cellIndex} className="flex-cell">
+                    <p
+                      className={
+                        cell === "Активный"
+                          ? "active-status"
+                          : cell === "Неактивный"
+                          ? "inactive-status"
+                          : ""
+                      }
+                    >
+                      {cell}
+                    </p>
+                  </div>
+                )
+              )}
+            </div>
+          </Link>
         ))}
       </div>
     </div>

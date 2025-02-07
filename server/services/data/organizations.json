@@ -18,6 +18,67 @@
     "categoryBudget": "",
     "orgType": "Бюджетная организация",
     "bz": [],
-    "details": []
+    "details": [],
+    "status": "Активный"
+  },
+  {
+    "files": [
+      "uploads\\organizations\\2f489e82-da6d-4483-8248-ba0b93a60db9\\1738931994295.docx"
+    ],
+    "id": "2f489e82-da6d-4483-8248-ba0b93a60db9",
+    "tax": "250008809",
+    "identificator": "516",
+    "name": "Агентство ценных бумаг",
+    "docNo": "814",
+    "dateDoc": "2025-02-06T19:00:00.000Z",
+    "address": " Ш.Душанбе, улица Ширози 35 - test",
+    "terCode": "Бадахшан",
+    "unitAccountingTer": "100-Сарраёсати хазинадории марказии ҶТ",
+    "grbsResonsible": "103-Сарраёсати хазинадории марказии ҶТ",
+    "grbs": "108-108-Вазорати корҳои дохилии Ҷумҳурии Тоҷикистон",
+    "pbs": "",
+    "categoryBudget": "",
+    "orgType": "Коммерческая организация",
+    "bz": "63582",
+    "details": "123",
+    "status": "Активный"
+  },
+  {
+    "files": [],
+    "id": "4bb8144d-f2fb-400e-9488-c30458342c4d",
+    "tax": "4c23",
+    "identificator": "4c",
+    "name": "c423",
+    "docNo": "",
+    "address": "",
+    "terCode": "",
+    "unitAccountingTer": "",
+    "grbsResonsible": "",
+    "grbs": "",
+    "pbs": "",
+    "categoryBudget": "",
+    "orgType": "Бюджетная организация",
+    "bz": [],
+    "details": [],
+    "status": "Активный"
+  },
+  {
+    "files": [],
+    "id": "734538cf-ca20-42c3-90be-385b565717a1",
+    "tax": "c423",
+    "identificator": "c4",
+    "name": "4c234c32",
+    "docNo": "",
+    "address": "",
+    "terCode": "",
+    "unitAccountingTer": "",
+    "grbsResonsible": "",
+    "grbs": "",
+    "pbs": "",
+    "categoryBudget": "",
+    "orgType": "Бюджетная организация",
+    "bz": [],
+    "details": [],
+    "status": "Активный"
   }
 ]

@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Crm.css";
 import Filter from "../../components/Filter/Filter";
 import { dataFilter } from "../../API/data/dataFilter";
 import Registry from "../../components/Registry/Registry";
 import { Link } from "react-router";
+import { getOrganizations } from "../../API/services/organizations/getOrganizations";
+import { queryClient } from "../../API/hooks/queryClient";
+import { useQuery } from "@tanstack/react-query";
+import { OrganizationScheme } from "../../API/services/organizations/OrganizationScheme";
 
 const Crm = () => {
+  const [organizations, setOrganizations] = useState<OrganizationScheme[]>([]);
+
+  const getOrganizationsQuery = useQuery(
+    {
+      queryFn: () => getOrganizations(),
+      queryKey: ["organizations"],
+    },
+    queryClient
+  );
+
+  useEffect(() => {
+    if (getOrganizationsQuery.status === "success") {
+      setOrganizations(getOrganizationsQuery.data);
+    }
+  }, [getOrganizationsQuery.data]);
+
   return (
     <main className="submodule-crm">
       <section>
@@ -18,7 +38,7 @@ const Crm = () => {
         </div>
       </section>
       <section>
-        <Registry />
+        <Registry data={organizations} />
       </section>
     </main>
   );

@@ -103,6 +103,8 @@ const CreateCRM = () => {
       formData.append("files", file);
     });
 
+    formData.append("status", "Активный");
+
     createOrganizationMutate.mutate(formData);
 
     navigate(`/crm/show/${orgId}`);
@@ -123,7 +125,11 @@ const CreateCRM = () => {
   return (
     <main className="create-crm">
       <TitleSection title="Новая организация" />
-      <PanelControl handleSubmit={handleSubmit(onSubmit)} />
+      <PanelControl
+        handleSubmit={handleSubmit(onSubmit)}
+        editButtonState={true}
+        saveButtonState={false}
+      />
       <TitleSection title="Создание организации" />
       <section>
         <form action="">
