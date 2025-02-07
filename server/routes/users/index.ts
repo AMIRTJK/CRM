@@ -9,9 +9,9 @@ const router = Router();
 
 console.log("Маршруты подключаются");
 
-router.get("/users", getUsers);
-router.post("/regme", createUser);
-router.put("/users/:id", updateUser);
-router.delete("/users/:id", deleteUser);
+router.get("/", getUsers);
+router.post("/", createUser);
+router.put("/:id", updateUser);
+router.delete("/:id", deleteUser);
 
 export default router;

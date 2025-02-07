@@ -43,7 +43,7 @@ function App() {
 								<Route path="/crm/show/:id" element={<LazyShowCRM />} />
 							</Routes>
 						</Suspense>
-					</div>
+					</div> 
 				</div>
 			</main>
 		</>

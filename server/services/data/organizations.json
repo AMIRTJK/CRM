@@ -1,0 +1,23 @@
+[
+  {
+    "files": [
+      "uploads\\organizations\\911de932-0d8a-488b-abd8-7f9859596e50\\1738927535790.docx",
+      "uploads\\organizations\\911de932-0d8a-488b-abd8-7f9859596e50\\1738927535790.pdf"
+    ],
+    "id": "911de932-0d8a-488b-abd8-7f9859596e50",
+    "tax": "c423c",
+    "identificator": "234",
+    "name": "c234",
+    "docNo": "",
+    "address": "",
+    "terCode": "",
+    "unitAccountingTer": "",
+    "grbsResonsible": "",
+    "grbs": "",
+    "pbs": "",
+    "categoryBudget": "",
+    "orgType": "Бюджетная организация",
+    "bz": [],
+    "details": []
+  }
+]

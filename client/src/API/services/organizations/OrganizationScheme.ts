@@ -22,5 +22,5 @@ export interface OrganizationScheme {
   }>;
   categoryBudget: string;
   orgType: string;
-  files: File;
+  files: File[];
 }
