@@ -1,40 +1,61 @@
 .section-offset {
-  background-color: #f7f7fc;
+	background: linear-gradient(
+		90deg,
+		rgb(243, 231, 233) 0%,
+		rgb(227, 238, 255) 99%,
+		rgb(227, 238, 255) 100%
+	);
 }
 
 .container {
-  max-width: 1536px;
-  padding: 0 25px;
-  margin: 0 auto;
+	max-width: 1536px;
+	padding: 0 25px;
+	margin: 0 auto;
 }
 
 .btn {
-  max-width: 215px !important;
-  width: 100% !important;
-  padding: 2px !important;
-  border-radius: 15px !important;
-  border: none !important;
-  background-color: var(--primary-color) !important;
-  color: #fff !important;
-  text-transform: uppercase !important;
-  font-weight: 500 !important;
-  border: 2px solid var(--primary-color) !important;
-  transition: all 0.3s !important;
-  cursor: pointer !important;
+	max-width: 215px !important;
+	width: 100% !important;
+	padding: 2px !important;
+	border-radius: 15px !important;
+	border: none !important;
+	background-color: var(--primary-color) !important;
+	color: #fff !important;
+	text-transform: uppercase !important;
+	font-weight: 500 !important;
+	border: 2px solid var(--primary-color) !important;
+	transition: all 0.3s !important;
+	cursor: pointer !important;
+}
+
+.btn-mui {
+	background-color: rgba(25, 118, 210, 0.04);
+	border-radius: 10px;
+	transition: background 0.2s ease-in-out;
+}
+
+.btn-mui:hover {
+	background: rgba(25, 118, 210, 0.1);
 }
 
 .btn:hover {
-  opacity: 80% !important;
+	opacity: 80% !important;
 }
 
 .input {
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  padding: 10px;
-  background: var(--bg-inp);
+	display: flex;
+	border: none;
+	border-radius: 10px;
+	text-align: center;
+	outline: none;
+	background-color: var(--bg-inp);
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 16px;
+	font-weight: 500;
 }
 
 .input:focus {
-  background: var(--background-color);
+	transition: background-color 0.2s ease-in-out;
+	background: var(--background-color);
 }

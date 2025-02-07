@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import { queryClient } from "./queryClient.ts";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router";
+import "./App.css";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
