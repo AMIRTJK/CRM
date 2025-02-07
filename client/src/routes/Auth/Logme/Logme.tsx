@@ -28,7 +28,7 @@ const Logme: React.FC = () => {
 						placeholder: "Введите пароль",
 					},
 				]}
-				sbtName="Войти 2"
+				sbtName="Войти"
 				// onsubmit={handleLogMe}
 				btnClassname="btn-mui logme__form-btn "
 			></Form>

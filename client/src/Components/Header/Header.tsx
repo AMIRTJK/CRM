@@ -87,6 +87,7 @@ const Header: React.FC = () => {
 						{/* Меню пользователя */}
 						<div className="header__right">
 							<svg
+								className="header__righ-svg"
 								width="40px"
 								height="40px"
 								viewBox="0 0 24 24"

@@ -1,6 +1,7 @@
 .logme__form {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	gap: 15px;
 }
 
@@ -12,4 +13,10 @@
 
 .btn-mui:hover {
 	background: rgba(25, 118, 210, 0.1);
+}
+
+.logme__input {
+	border: 1px solid gray;
+	border-radius: 20px;
+	padding: 16px 15px;
 }
