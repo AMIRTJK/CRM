@@ -1,35 +1,14 @@
 import { Button } from "@mui/material";
+import BusinessIcon from "@mui/icons-material/Business";
 import "./Orgcard.css";
 
 import { OrganizationScheme } from "../../API/services/organizations/OrganizationScheme";
 
 export interface OrgProps {
-	//   orgName: string;
-	//   orgType: string;
-	//   orgInn?: string;
-	//   orglocation?: string;
-	//   directorName?: string;
-	//   directorInn?: string;
-	//   directorPhone?: string;
-	//   headAccountantName?: string;
-	//   headAccountantInn?: string;
-	//   headAccountantPhone?: string;
 	data: OrganizationScheme;
 }
 
-const Orgcard: React.FC<OrgProps> = ({
-	//   orgName,
-	//   orgType,
-	//   orgInn,
-	//   orglocation,
-	//   directorName,
-	//   directorInn,
-	//   directorPhone,
-	//   headAccountantName,
-	//   headAccountantInn,
-	//   headAccountantPhone,
-	data,
-}) => {
+const Orgcard: React.FC<OrgProps> = ({ data }) => {
 	return (
 		<>
 			<div className="orgcard__content">
@@ -37,11 +16,14 @@ const Orgcard: React.FC<OrgProps> = ({
 					{/* Левая карточка */}
 					<li className="orgcard__item orgcard__item-left">
 						<div className="orgcard__item-left-top">
-							<h3 className="orgcard__item-left-title">{data?.name}</h3>
-							<Button className="show-org-structure">Показать структуру</Button>
+							<h3 className="orgcard__item-left-title">{data?.status}</h3>
+							<Button className="show-org-structure">
+								Показать структуру2
+							</Button>
 						</div>
 						<div className="orgcard__item-left orgcard__item-left-center">
-							{data?.orgType}
+							<BusinessIcon />
+							{data?.name}
 						</div>
 						<ul className="orgcard__item-left-bottom">
 							<li className="orgcard__item-left-item">
