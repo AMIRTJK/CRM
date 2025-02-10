@@ -37,21 +37,21 @@ const Orgcard: React.FC<OrgProps> = ({
           {/* Левая карточка */}
           <li className="orgcard__item orgcard__item-left">
             <div className="orgcard__item-left-top">
-              <h3 className="orgcard__item-left-title">{data.name}</h3>
+              <h3 className="orgcard__item-left-title">{data?.name}</h3>
               <Button className="show-org-structure">Показать структуру</Button>
             </div>
             <ul className="orgcard__item-left-bottom">
               <li className="orgcard__item-left-item">
                 <p>Тип</p>
-                {data.name}
+                {data?.name}
               </li>
               <li className="orgcard__item-left-item">
                 <p>Инн</p>
-                {data.address}
+                {data?.address}
               </li>
               <li className="orgcard__item-left-item">
                 <p>Адрес</p>
-                {data.address}
+                {data?.address}
               </li>
             </ul>
           </li>
