@@ -261,6 +261,7 @@ const ShowCRM = () => {
       <section>
         {/* <CardOrganization item={organizationsById} /> */}
         <Orgcard
+          data={organizationsById}
           orgName="km"
           orgType="bo"
           orgInn="1123"
