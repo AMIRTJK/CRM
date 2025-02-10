@@ -1,6 +1,7 @@
 .orgcard__list {
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
 	gap: 10px;
 }
 
@@ -10,7 +11,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	min-height: 200px;
-	background: rgba(255, 255, 255, 0.335);
+	background: linear-gradient(135deg, #ee698e8f, #dbe4);
 	border-radius: 16px;
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(255, 255, 255, 0.2);
 	padding: 24px;
@@ -40,6 +41,25 @@
 	color: #000;
 }
 
+.orgcard__item-left-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 200px;
+	background: transparent;
+	border-radius: 6px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.088), 0 1px 2px rgba(255, 255, 255, 0.2);
+	padding: 24px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	text-align: center;
+	justify-content: center;
+}
+
+.orgcard__item-left-center:hover {
+	transform: translateY(0);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.088), 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
 .orgcard__item-left-bottom {
 	display: flex;
 	gap: 10px;
@@ -51,23 +71,20 @@
 
 /* Правый контейнер */
 .orgcard__right-container {
-	display: flex;
-	flex-direction: column;
+	display: grid;
 	gap: 10px;
 }
 
 /* Правые карточки */
 .orgcard__item-right {
-	display: flex;
-	flex-direction: column;
-	min-height: 150px;
-	background: rgba(255, 255, 255, 0.335);
+	background: linear-gradient(135deg, #bfdb90, #8bf99f);
 	border-radius: 16px;
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(255, 255, 255, 0.2);
 	padding: 24px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	min-width: 500px;
-	max-width: 600px;
+	min-height: 150px;
+	max-width: 650px;
 }
 
 .orgcard__item-right:hover {
@@ -76,23 +93,27 @@
 		0 4px 6px rgba(255, 255, 255, 0.25);
 }
 
+.orgcard__item-right--nothover:hover {
+	transform: translateY(0);
+}
+
 .orgcard__item-right-top {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	margin-bottom: 10px;
+	color: #fff;
 }
 
 .orgcard__item-right-title {
 	font-weight: 600;
+	text-align: center;
 }
 
-.orgcard__item-right-bottom {
+.orgcard__item-right--nothover {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	align-items: center;
 	gap: 10px;
 }
 
-.org-users-text {
-	text-align: center;
+.orgcard__item-right-item {
+	color: #ffffffd7;
+	width: calc((100% - 10px) * 2 / 3);
 }
