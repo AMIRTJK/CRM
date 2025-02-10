@@ -1,6 +1,5 @@
 .orgcard__list {
 	display: flex;
-	justify-content: space-around;
 	flex-wrap: wrap;
 	gap: 10px;
 }
@@ -90,9 +89,8 @@
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(255, 255, 255, 0.2);
 	padding: 24px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	min-width: 500px;
 	min-height: 150px;
-	max-width: 650px;
+	width: 100%;
 }
 
 .orgcard__item-right:hover {
