@@ -12,7 +12,7 @@ const LazyRegMe = lazy(() => import("./routes/Auth/Regme/Regme"));
 const LazyCrm = lazy(() => import("./routes/CRM/Crm"));
 const LazyCreateCRM = lazy(() => import("./routes/CRM/Create/CreateCRM"));
 const LazyShowCRM = lazy(() => import("./routes/CRM/Show/ShowCRM"));
-const LazyOrgcard = lazy(() => import("./routes/Orgcard/Orgcard"));
+// const LazyOrgcard = lazy(() => import("./routes/Orgcard/Orgcard"));
 function App() {
 	const location = useLocation();
 
@@ -45,14 +45,14 @@ function App() {
 								<Route path="/crm/create" element={<LazyCreateCRM />} />
 								<Route path="/crm/show/:id" element={<LazyShowCRM />} />
 							</Routes>
-							<LazyOrgcard
+							{/* <LazyOrgcard
 								orgName="km"
 								orgType="bo"
 								orgInn="1123"
 								orglocation="испечак 2"
 								directorName="km"
 								headAccountantName="km"
-							/>
+							/> */}
 						</Suspense>
 					</div> 
 				</div>

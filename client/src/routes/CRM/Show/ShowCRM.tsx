@@ -9,6 +9,7 @@ import PanelControl from "../../../UI/Panel Control/PanelControl";
 import "./ShowCRM.css";
 import TitleSection from "../../../UI/Title of Section/TitleSection";
 import CardOrganization from "../../../UI/Card of Organization/CardOrganization";
+import Orgcard from "../../Orgcard/Orgcard";
 
 const ShowCRM = () => {
   const { id: orgId } = useParams();
@@ -38,7 +39,15 @@ const ShowCRM = () => {
       <PanelControl editButtonState={false} saveButtonState={true} />
       <TitleSection title="Карточка организации" />
       <section>
-        <CardOrganization item={organizationsById} />
+        {/* <CardOrganization item={organizationsById} /> */}
+        <Orgcard
+          orgName="km"
+          orgType="bo"
+          orgInn="1123"
+          orglocation="испечак 2"
+          directorName="km"
+          headAccountantName="km"
+        />
       </section>
       <TitleSection title="Данные по модулям" />
       <section></section>
