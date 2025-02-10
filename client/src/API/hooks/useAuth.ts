@@ -1,8 +1,8 @@
-import { LogmeProps } from "../users/logMe";
-import { RegmeProps } from "../users/createUser";
+import { LogmeProps } from "../services/users/logMe";
+import { RegmeProps } from "../services/users/createUser";
 export const useAuth = () => {
 	const logMe = async (data: LogmeProps): Promise<void> => {
-		return await fetch(`http://localhost:3000/logme`, {
+		return await fetch(`http://localhost:3000/users/logme`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -23,7 +23,7 @@ export const useAuth = () => {
 
 	const regMe = async (newUser: RegmeProps): Promise<void> => {
 		try {
-			const response = await fetch("http://localhost:3000/users/createuser", {
+			const response = await fetch("http://localhost:3000/users", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
