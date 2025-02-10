@@ -1,66 +1,52 @@
-// import { Button } from "@mui/material";
-// import { createUser } from "../../../API/services/users/createUser";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../../API/hooks/queryClient";
-// import { useQuery } from "@tanstack/react-query";
-import { useAuth } from "../../../API/services/hooks/useAuth";
+import { useAuth } from "../../../API/hooks/useAuth";
 import { Form } from "../../../UI/Form/Form";
-
 import "./Regme.css";
-import "../../../App.css";
-// RTQ
+
 const Regme: React.FC = () => {
-  const { regMe } = useAuth();
-  const logMeMutation = useMutation({
-    mutationFn: () => regMe(data),
-    onSuccess: () => console.log(`Успешно`),
-  });
+	const { regMe } = useAuth();
 
-  const newUser = {
-    login: "Amir",
-  };
+	// Мутация для регистрации пользователя
+	const createUserMutate = useMutation({
+		mutationFn: (data: { username: string; password: string }) => regMe(data),
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ["users"] });
+			console.log("Пользователь успешно создан");
+		},
+		onError: (error) => {
+			console.error("Ошибка при создании пользователя:", error);
+		},
+	});
 
-  const createUserMutate = useMutation(
-    {
-      mutationFn: () => createUser(newUser),
-      onSuccess: () => queryClient.invalidateQueries({ queryKey: ["users"] }),
-    },
-    queryClient
-  );
+	// Обработчик отправки формы
+	const onSubmit = (data: { username: string; password: string }) => {
+		console.log("Отправляемые данные:", data);
+		createUserMutate.mutate(data);
+	};
 
-  const onSubmit = () => {
-    createUserMutate.mutate();
-  };
-
-  // Regme sbt
-  const handleRegme = async (e: React.FormEvent): Promise<void> => {
-    e.preventDefault();
-  };
-
-  return (
-    <>
-      <Form
-        classname="regme__form"
-        input={[
-          {
-            name: "login",
-            type: "text",
-            placeholder: "Логин",
-            classname: "input regme__input",
-          },
-          {
-            name: "password",
-            type: "password",
-            placeholder: "Введите пароль",
-            classname: "input regme__input",
-          },
-        ]}
-        sbtName="Зарегистрироваться"
-        btnClassname="btn-mui regme__sbt"
-        onsubmit={handleRegme}
-      ></Form>
-    </>
-  );
+	return (
+		<Form
+			inputs={[
+				{
+					name: "username",
+					type: "text",
+					placeholder: "Логин",
+					classname: "input",
+				},
+				{
+					name: "password",
+					type: "password",
+					placeholder: "Введите пароль",
+					classname: "input",
+				},
+			]}
+			classname="auth-form regme__form"
+			submitText="Зарегистрироваться"
+			submitClassname="btn-mui regme__sbt"
+			onSubmit={onSubmit}
+		/>
+	);
 };
 
 export default Regme;
