@@ -49,6 +49,7 @@
   min-height: 60px;
   display: flex;
   align-items: center;
+  
 }
 
 .flex-cell:last-child {

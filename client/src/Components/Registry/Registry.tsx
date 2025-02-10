@@ -2,37 +2,22 @@ import React from "react";
 import "./Registry.css";
 import { dataFilter } from "../../API/data/dataFilter";
 import { OrganizationScheme } from "../../API/services/organizations/OrganizationScheme";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 interface TProps {
-  data: OrganizationScheme[];
+  headersProps: string[];
+  rowsProps: any;
+  status: any;
 }
 
-const Registry = ({ data }: TProps) => {
-  const headers = dataFilter
-    .filter((e) => {
-      return [
-        "Номер списка",
-        "Идентификатор",
-        "Наименование",
-        "ИНН организации",
-        "Тип организации",
-        "Статус",
-      ].includes(e.title);
-    })
-    .map((e) => e.title);
+const Registry = ({ headersProps, rowsProps, status }: TProps) => {
+  const headers = headersProps;
 
-  console.log(data);
+  const rows = rowsProps;
 
-  const rows = data.map((org: OrganizationScheme, index) => [
-    org.id, // Добавляем id в начало строки, но не отображаем его
-    index + 1, // Номер списка
-    org.identificator, // Идентификатор
-    org.name, // Наименование
-    org.tax, // ИНН организации
-    org.orgType, // Тип организации
-    org.status, // Статус
-  ]);
+  const location = useLocation();
+
+  console.log(location);
 
   return (
     <div className="flex-table">
@@ -49,9 +34,11 @@ const Registry = ({ data }: TProps) => {
 
       {/* Строки */}
       <div className="flex-table-body">
-        {rows.map((row, rowIndex) => (
-          <Link key={rowIndex} to={`show/${row[0]}`}>
-            {" "}
+        {rows?.map((row: any[], rowIndex: React.Key | null | undefined) => (
+          <Link
+            key={rowIndex}
+            to={`${location.pathname === "/crm" ? `/crm/show/${row[0]}` : "#"}`}
+          >
             {/* Используем id для навигации */}
             <div className="flex-row">
               {row.slice(1).map(
@@ -62,9 +49,9 @@ const Registry = ({ data }: TProps) => {
                   <div key={cellIndex} className="flex-cell">
                     <p
                       className={
-                        cell === "Активный"
+                        cell === status.active
                           ? "active-status"
-                          : cell === "Неактивный"
+                          : cell === status.inactive
                           ? "inactive-status"
                           : ""
                       }

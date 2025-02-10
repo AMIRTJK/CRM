@@ -26,6 +26,29 @@ const Crm = () => {
     }
   }, [getOrganizationsQuery.data]);
 
+  const headers = dataFilter
+    .filter((e) => {
+      return [
+        "Номер списка",
+        "Идентификатор",
+        "Наименование",
+        "ИНН организации",
+        "Тип организации",
+        "Статус",
+      ].includes(e.title);
+    })
+    .map((e) => e.title);
+
+  const rows = organizations.map((org: OrganizationScheme, index) => [
+    org.id, // Добавляем id в начало строки, но не отображаем его
+    index + 1, // Номер списка
+    org.identificator, // Идентификатор
+    org.name, // Наименование
+    org.tax, // ИНН организации
+    org.orgType, // Тип организации
+    org.status, // Статус
+  ]);
+
   return (
     <main className="submodule-crm">
       <section>
@@ -38,7 +61,11 @@ const Crm = () => {
         </div>
       </section>
       <section>
-        <Registry data={organizations} />
+        <Registry
+          headersProps={headers}
+          rowsProps={rows}
+          status={{ active: "Активный", inactive: "Неактивный" }}
+        />
       </section>
     </main>
   );
