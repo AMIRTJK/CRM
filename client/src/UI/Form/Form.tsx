@@ -1,41 +1,49 @@
 import { Button } from "@mui/material";
-export interface FormProps {
-	input: {
+import { useForm } from "react-hook-form";
+
+interface FormProps {
+	inputs: {
 		name: string;
 		type?: string;
 		placeholder?: string;
-		classname: string;
+		classname?: string;
 	}[];
 	classname?: string;
-	onsubmit: (data: React.FormEvent) => void;
-	sbtName: string;
-	btnClassname?: string;
+	onSubmit: (data: unknown) => void;
+	submitText?: string;
+	submitClassname?: string;
 }
 
 export const Form: React.FC<FormProps> = ({
-	input,
+	inputs,
 	classname,
-	onsubmit,
-	sbtName,
-	btnClassname,
+	onSubmit,
+	submitText,
+	submitClassname,
 }) => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+
 	return (
-		<>
-			<form className={classname} onSubmit={onsubmit}>
-				{input?.map(({ name, type, placeholder, classname }) => (
-					<>
-						<input
-							name={name}
-							type={type}
-							className={classname}
-							placeholder={placeholder}
-						/>
-					</>
-				))}
-			</form>
-			<Button type="submit" className={btnClassname}>
-				{sbtName || "Отправить"}
+		<form className={classname} onSubmit={handleSubmit(onSubmit)}>
+			{inputs?.map(({ name, type, placeholder, classname }) => (
+				<>
+					<input
+						{...register(name, { required: `Поле ${name} обязательно` })}
+						type={type || "text"}
+						placeholder={placeholder || "Введите данные"}
+						className={classname}
+					/>
+					{errors[name] && <span>{errors[name]?.message}</span>}
+				</>
+			))}
+
+			<Button type="submit" className={submitClassname}>
+				{submitText}
 			</Button>
-		</>
+		</form>
 	);
 };

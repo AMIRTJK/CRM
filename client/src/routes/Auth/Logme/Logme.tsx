@@ -4,35 +4,39 @@ import "./Logme.css";
 import { useAuth } from "../../../API/hooks/useAuth";
 // RTQ
 const Logme: React.FC = () => {
-  const { logMe } = useAuth();
-  const logMeMutation = useMutation({
-    mutationFn: () => logMe(data),
-    onSuccess: () => console.log(`Успешно`),
-  });
+	const { logMe } = useAuth();
+	const logMeMutation = useMutation({
+		mutationFn: (data: { username: string; password: string }) => logMe(data),
+		onSuccess: () => console.log(`Успешно`),
+	});
 
-  return (
-    <>
-      <Form
-        classname="logme__form"
-        input={[
-          {
-            name: "username",
-            type: "text",
-            placeholder: "Введите ИНН",
-            classname: "input logme__input",
-          },
-          {
-            name: "password",
-            classname: `input logme__input`,
-            type: "password",
-            placeholder: "Введите пароль",
-          },
-        ]}
-        sbtName="Войти"
-        // onsubmit={handleLogMe}
-        btnClassname="btn-mui logme__form-btn "
-      ></Form>
-    </>
-  );
+	const onsubmit = (data: { username: string; password: string }) => {
+		logMeMutation.mutate(data);
+	};
+
+	return (
+		<>
+			<Form
+				inputs={[
+					{
+						name: "username",
+						type: "text",
+						placeholder: "Логин",
+						classname: "input",
+					},
+					{
+						name: "password",
+						type: "password",
+						placeholder: "Введите пароль",
+						classname: "input",
+					},
+				]}
+				classname="auth-form logme__form"
+				submitText="Войти"
+				submitClassname="btn-mui regme__sbt"
+				onSubmit={onsubmit}
+			></Form>
+		</>
+	);
 };
 export default Logme;
