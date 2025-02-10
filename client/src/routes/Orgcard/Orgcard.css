@@ -11,12 +11,13 @@
 	flex-direction: column;
 	justify-content: space-between;
 	min-height: 200px;
-	background: linear-gradient(135deg, #ee698e8f, #dbe4);
+	background: linear-gradient(135deg, #ee698fc3, rgba(255, 132, 153, 0.579));
 	border-radius: 16px;
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(255, 255, 255, 0.2);
 	padding: 24px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	max-width: 600px;
+	color: #fff;
 	width: 100%;
 }
 
@@ -38,7 +39,7 @@
 
 .show-org-structure {
 	outline: 1px solid rgba(130, 130, 130, 0.185);
-	color: #000;
+	color: #fff;
 }
 
 .orgcard__item-left-center {
@@ -62,11 +63,8 @@
 
 .orgcard__item-left-bottom {
 	display: flex;
+	justify-content: space-between;
 	gap: 10px;
-}
-
-.orgcard__item-left-item {
-	width: calc((100% - 10px) * 2 / 3);
 }
 
 /* Правый контейнер */
