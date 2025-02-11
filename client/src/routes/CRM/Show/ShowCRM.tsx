@@ -15,6 +15,12 @@ import { dataFilter } from "../../../API/data/dataFilter";
 import OrganizationCard from "../../../components/Card/Organization Card/OrganizationCard";
 import UserCard from "../../../components/Card/User Card/UserCard";
 import { userCards } from "../../../API/data/userCards";
+import Input from "../../../UI/Input/Input";
+import { useForm } from "react-hook-form";
+import DatePickerUI from "../../../UI/Date Picker/DatePickerUI";
+import SelectUI from "../../../UI/Select/SelectUI";
+import { IconButton } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 const ShowCRM = () => {
   const { id: orgId } = useParams();
@@ -257,19 +263,258 @@ const ShowCRM = () => {
   const directorCard = userCards.find((e) => e.role === "Директор");
   const accounterCard = userCards.find((e) => e.role === "Главный бухгалтер");
 
+  const [editActive, setEditActive] = useState<boolean>(false);
+
+  const handleClick = (state: boolean) => {
+    setEditActive(state);
+  };
+
+  const { register, watch, control, handleSubmit, setValue, getValues } =
+    useForm<OrganizationScheme>({
+      defaultValues: {
+        tax: "",
+        identificator: "",
+        name: "",
+        docNo: "",
+        dateDoc: null,
+        address: "",
+        terCode: "",
+        unitAccountingTer: "",
+        grbsResonsible: "",
+        grbs: "",
+        pbs: "",
+        bz: [],
+        details: [],
+        categoryBudget: "",
+        orgType: "Бюджетная организация",
+        files: [],
+      },
+    });
+
   return (
     <main className="show-crm">
       <TitleSection title={organizationsById ? organizationsById?.name : ""} />
-      <PanelControl editButtonState={false} saveButtonState={true} />
+      <PanelControl
+        editButtonState={editActive}
+        saveButtonState={!editActive}
+        handleClick={handleClick}
+        state={editActive}
+      />
       <TitleSection title="Карточка организации" />
       <section>
-        <div className="wrapper-cards">
-          <OrganizationCard data={organizationsById} />
-          <div className="wrapper-user-cards">
-            <UserCard data={directorCard} />
-            <UserCard data={accounterCard} />
+        {!editActive && (
+          <div className="wrapper-cards">
+            <OrganizationCard data={organizationsById} />
+            <div className="wrapper-user-cards">
+              <UserCard data={directorCard} />
+              <UserCard data={accounterCard} />
+            </div>
           </div>
-        </div>
+        )}
+        {editActive && (
+          <form action="">
+            <Input
+              editValue={organizationsById?.tax}
+              register={register}
+              idValue="tax"
+              labelValue="ИНН *"
+              borderRadiusStyle="30px"
+              heightStyle="90%"
+              widthStyle="48%"
+            />
+            <Input
+              editValue={organizationsById?.identificator}
+              register={register}
+              idValue="identificator"
+              labelValue="Идентификатор *"
+              borderRadiusStyle="30px"
+              heightStyle="90%"
+              widthStyle="48%"
+            />
+            <Input
+              editValue={organizationsById?.name}
+              register={register}
+              idValue="name"
+              labelValue="Название *"
+              borderRadiusStyle="30px"
+              heightStyle="90%"
+              widthStyle="48%"
+            />
+            <Input
+              editValue={organizationsById?.docNo}
+              register={register}
+              idValue="docNo"
+              labelValue="Номер договора"
+              borderRadiusStyle="30px"
+              heightStyle="90%"
+              widthStyle="48%"
+            />
+            <DatePickerUI
+              editValue={organizationsById?.dateDoc}
+              control={control}
+              nameValue="dateDoc"
+              labelValue="Дата договора"
+              borderRadiusStyle="30px"
+              heightStyle="90%"
+              widthStyle="48%"
+            />
+            <Input
+              editValue={organizationsById?.address}
+              register={register}
+              idValue="address"
+              labelValue="Адрес"
+              borderRadiusStyle="30px"
+              heightStyle="90%"
+              widthStyle="48%"
+            />
+            <SelectUI
+              editValue={organizationsById?.terCode}
+              control={control}
+              nameValue="terCode"
+              labelValue="Код территории"
+              borderRadiusStyle="30px"
+              widthStyle="48%"
+              data={[
+                { id: 1, title: "Бадахшан" },
+                { id: 2, title: "Хатлон" },
+                { id: 3, title: "Душанбе" },
+              ]}
+            />
+            <SelectUI
+              editValue={organizationsById?.unitAccountingTer}
+              control={control}
+              nameValue="unitAccountingTer"
+              labelValue="Единица учета"
+              borderRadiusStyle="30px"
+              widthStyle="48%"
+              data={[
+                { id: 1, title: "100-Сарраёсати хазинадории марказии ҶТ" },
+                { id: 2, title: "101-шаҳри Душанбе" },
+                { id: 3, title: "102-ноҳияи Синои" },
+              ]}
+            />
+            <SelectUI
+              editValue={organizationsById?.grbsResonsible}
+              control={control}
+              nameValue="grbsResonsible"
+              labelValue="ГРБС (Ответственный)"
+              borderRadiusStyle="30px"
+              widthStyle="48%"
+              data={[
+                { id: 1, title: "103-Сарраёсати хазинадории марказии ҶТ" },
+                { id: 2, title: "104-шаҳри Душанбе" },
+                { id: 3, title: "105-ноҳияи Синои" },
+              ]}
+            />
+            <SelectUI
+              editValue={organizationsById?.grbs}
+              control={control}
+              nameValue="grbs"
+              labelValue="ГРБС"
+              borderRadiusStyle="30px"
+              widthStyle="48%"
+              data={[
+                {
+                  id: 1,
+                  title: "108-108-Вазорати корҳои дохилии Ҷумҳурии Тоҷикистон",
+                },
+                {
+                  id: 2,
+                  title: "109-109-Вазорати мудофиаи Ҷумҳурии Тоҷикистон",
+                },
+                {
+                  id: 3,
+                  title:
+                    "101-101-Дастгоҳи иҷроияи Президенти Ҷумҳурии Тоҷикистон",
+                },
+              ]}
+            />
+            <SelectUI
+              editValue={organizationsById?.pbs}
+              control={control}
+              nameValue="pbs"
+              labelValue="ПБС"
+              borderRadiusStyle="30px"
+              widthStyle="48%"
+              data={[
+                {
+                  id: 1,
+                  title: "10801013-10801013-Шуъбаи корҳои дохилии ноҳияи Лахш",
+                },
+                {
+                  id: 2,
+                  title:
+                    "10703001-10703001-Дастгоҳи марказии Бозрасии назорати давлатии тухмии Вазорати кишоварзии Ҷумҳурии Тоҷикистон",
+                },
+                {
+                  id: 3,
+                  title:
+                    "10703002-10703002-Бозрасии назорати давлатии тухмӣ дар вилояти Хатлон",
+                },
+              ]}
+            />
+            <SelectUI
+              editValue={organizationsById?.bz}
+              control={control}
+              nameValue="bz"
+              labelValue="Бюджетные заявки *"
+              borderRadiusStyle="30px"
+              widthStyle="48%"
+              data={[
+                {
+                  id: 1,
+                  title: "63581",
+                },
+                { id: 2, title: "63582" },
+                {
+                  id: 3,
+                  title: "63583",
+                },
+              ]}
+            />
+            <SelectUI
+              editValue={organizationsById?.details}
+              control={control}
+              nameValue="details"
+              labelValue="Реквизиты"
+              borderRadiusStyle="30px"
+              widthStyle="44%"
+              data={[
+                {
+                  id: 1,
+                  title: "123",
+                },
+                { id: 2, title: "1234" },
+                {
+                  id: 3,
+                  title: "12345",
+                },
+              ]}
+            />
+            <IconButton>
+              <AddIcon />
+            </IconButton>
+            <SelectUI
+              editValue={organizationsById?.orgType}
+              control={control}
+              nameValue="orgType"
+              labelValue="Тип организации"
+              borderRadiusStyle="30px"
+              widthStyle="48%"
+              data={[
+                {
+                  id: 1,
+                  title: "Бюджетная организация",
+                },
+                { id: 2, title: "Коммерческая организация" },
+                {
+                  id: 3,
+                  title: "Министерство финансов",
+                },
+              ]}
+            />
+          </form>
+        )}
 
         {/* <CardOrganization item={organizationsById} /> */}
         {/* <Orgcard

@@ -100,7 +100,7 @@ const Header: React.FC = () => {
                       className="wrapper-profile"
                       onClick={handleOpenUserMenu}
                     >
-                      <Avatar alt="User Avatar" src={defName} />
+                      <Avatar alt="Mahmud Norov" src={defName} />
                       <p className="header__right-uname">{defName}</p>
                     </Button>
                   </div>

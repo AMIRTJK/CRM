@@ -5,6 +5,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { Controller } from "react-hook-form";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
 
 interface TProps {
   control: any;
@@ -13,6 +14,7 @@ interface TProps {
   borderRadiusStyle: string;
   heightStyle: string;
   widthStyle: string;
+  editValue: any;
 }
 
 const DatePickerUI = ({
@@ -22,6 +24,7 @@ const DatePickerUI = ({
   borderRadiusStyle,
   heightStyle,
   widthStyle,
+  editValue,
 }: TProps) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -33,7 +36,7 @@ const DatePickerUI = ({
             <DatePicker
               {...field}
               label={labelValue}
-              value={field.value} // Теперь это либо объект Dayjs, либо null
+              value={editValue ? dayjs(editValue) : field.value} // Теперь это либо объект Dayjs, либо null
               onChange={(newValue) => field.onChange(newValue)}
               sx={{
                 "& .MuiOutlinedInput-root": {

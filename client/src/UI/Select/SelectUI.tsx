@@ -17,6 +17,7 @@ interface TProps {
   heightStyle?: string;
   widthStyle: string;
   data: TData[];
+  editValue: any;
 }
 
 const SelectUI = ({
@@ -26,6 +27,7 @@ const SelectUI = ({
   borderRadiusStyle,
   widthStyle,
   data,
+  editValue,
 }: TProps) => {
   return (
     <Box width={widthStyle}>
@@ -38,6 +40,7 @@ const SelectUI = ({
             <InputLabel id="terCode-label">{labelValue}</InputLabel>
             <Select
               {...field}
+              value={editValue ? editValue : ""}
               id={nameValue}
               labelId={`${nameValue}-label`}
               label={labelValue}

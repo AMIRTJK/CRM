@@ -121,5 +121,24 @@
     "bz": "63582",
     "details": "123",
     "status": "Активный"
+  },
+  {
+    "files": [],
+    "id": "5656ce91-dbec-4a2f-a7f9-f91c99df104d",
+    "tax": "444444444444",
+    "identificator": "44444444444",
+    "name": "44444444444",
+    "docNo": "4444444444444",
+    "address": "",
+    "terCode": "",
+    "unitAccountingTer": "",
+    "grbsResonsible": "",
+    "grbs": "",
+    "pbs": "",
+    "categoryBudget": "",
+    "orgType": "Бюджетная организация",
+    "bz": [],
+    "details": [],
+    "status": "Активный"
   }
 ]

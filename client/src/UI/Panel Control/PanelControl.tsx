@@ -7,17 +7,23 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate } from "react-router";
 
 interface TProps {
-  handleSubmit?: React.MouseEventHandler;
+  handleSubmit?: any;
   editButtonState: boolean;
   saveButtonState: boolean;
+  handleClick: (state: boolean) => void;
+  state: boolean;
 }
 
 const PanelControl = ({
   handleSubmit,
   editButtonState,
   saveButtonState,
+  handleClick,
+  state,
 }: TProps) => {
   const navigate = useNavigate();
+
+  console.log(state);
 
   return (
     <div className="panel-control">
@@ -37,6 +43,7 @@ const PanelControl = ({
       </div>
       <div className="action-buttons">
         <Button
+          onClick={() => handleClick(true)}
           disabled={editButtonState}
           sx={{
             display: "flex",
@@ -50,7 +57,9 @@ const PanelControl = ({
         </Button>
         <Button
           disabled={saveButtonState}
-          onClick={handleSubmit}
+          onClick={() => {
+            state ? handleClick(false) : handleSubmit();
+          }}
           type="submit"
           sx={{
             display: "flex",
