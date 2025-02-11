@@ -12,6 +12,7 @@ interface TProps {
   saveButtonState: boolean;
   handleClick?: (state: boolean) => void;
   state?: boolean;
+  target?: string;
 }
 
 const PanelControl = ({
@@ -20,6 +21,7 @@ const PanelControl = ({
   saveButtonState,
   handleClick,
   state,
+  target,
 }: TProps) => {
   const navigate = useNavigate();
 
@@ -43,7 +45,7 @@ const PanelControl = ({
       </div>
       <div className="action-buttons">
         <Button
-          onClick={() => handleClick(true)}
+          onClick={() => handleClick(true, target)}
           disabled={editButtonState}
           sx={{
             display: "flex",
@@ -58,7 +60,7 @@ const PanelControl = ({
         <Button
           disabled={saveButtonState}
           onClick={() => {
-            state ? handleClick(false) : handleSubmit();
+            state ? handleClick(false, target) : handleSubmit();
           }}
           type="submit"
           sx={{

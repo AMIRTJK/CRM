@@ -14,9 +14,11 @@ import { OrganizationScheme } from "../../../API/services/organizations/Organiza
 
 interface TProps {
   data: OrganizationScheme;
+  handleClick: (state: boolean) => void;
+  target?: string;
 }
 
-const OrganizationCard = ({ data }: TProps) => {
+const OrganizationCard = ({ data, handleClick, target }: TProps) => {
   return (
     <div className="organization-card">
       <div className="wrapper-image"></div>
@@ -93,7 +95,11 @@ const OrganizationCard = ({ data }: TProps) => {
           </ul>
         </div>
         <div className="panel-control">
-          <Button variant="contained" sx={{}}>
+          <Button
+            onClick={() => handleClick(true, target)}
+            variant="contained"
+            sx={{}}
+          >
             Подробнее
           </Button>
           <Button variant="contained">Структура</Button>
