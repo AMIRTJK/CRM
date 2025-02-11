@@ -2,12 +2,17 @@ import { Form } from "../../../UI/Form/Form";
 import { useMutation } from "@tanstack/react-query";
 import "./Logme.css";
 import { useAuth } from "../../../API/hooks/useAuth";
+import { useNavigate } from "react-router";
+import { queryClient } from "../../../API/hooks/queryClient";
 // RTQ
 const Logme: React.FC = () => {
+	const navigate = useNavigate();
 	const { logMe } = useAuth();
 	const logMeMutation = useMutation({
 		mutationFn: (data: { username: string; password: string }) => logMe(data),
-		onSuccess: () => console.log(`Успешно`),
+		onSuccess: () =>
+			navigate("/crm") &&
+			queryClient.invalidateQueries({ queryKey: ["organizations"] }),
 	});
 
 	const onsubmit = (data: { username: string; password: string }) => {
