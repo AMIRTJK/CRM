@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import headerLogo from "../../assets/tj-logo-img.jpg";
 import {
@@ -29,25 +29,15 @@ const Header: React.FC = () => {
 		setAnchorElUser(null);
 	};
 
-	// Логика для выхода (например, очистка токенов и редирект)
-	const handleLogout = () => {
-		// Реализовать логику выхода
-		console.log("User logged out");
-		/**
-		 * Очистка токена
-		 */
-		// localStorage.removeItem("token");
-	};
-
 	// DefName
 	const defName = "Кимки Кимкиев";
-
 	return (
 		<>
 			<header>
 				<div className="container">
 					<div className="header__content">
 						{/* Логотип */}
+
 						<Link to="/crm" className="header__logo-link">
 							<div className="wrapper-header-logo">
 								<img
@@ -62,7 +52,6 @@ const Header: React.FC = () => {
 								</div>
 							</div>
 						</Link>
-
 						{/* Навигация */}
 						<nav className="header__nav">
 							<ul className="nav__list">
@@ -83,7 +72,6 @@ const Header: React.FC = () => {
 								</li>
 							</ul>
 						</nav>
-
 						{/* Меню пользователя */}
 						<div className="header__right">
 							<svg
@@ -108,7 +96,7 @@ const Header: React.FC = () => {
 								<Tooltip title="Открыть настройки" className="header__tooltip">
 									<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
 										<Avatar alt="User Avatar" src={defName} />
-										<p className="header__right-uname">test-name</p>
+										<p className="header__right-uname">{info.name}</p>
 									</IconButton>
 								</Tooltip>
 

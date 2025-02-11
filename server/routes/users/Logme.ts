@@ -16,7 +16,7 @@ export const Logme = (req: Request, res: Response) => {
 			.send({ message: "Отсутствуют объязательные поля (логин или пароль)" });
 	}
 	const readUserFile = readFile(USERS_FILE_PATH);
-	const user = JSON.parse(readUserFile);
+	const user = readUserFile;
 	const isUserValid = user.find(
 		(item) => item.username === username && item.password === password,
 	);
