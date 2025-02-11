@@ -10,8 +10,8 @@ interface TProps {
   handleSubmit?: any;
   editButtonState: boolean;
   saveButtonState: boolean;
-  handleClick: (state: boolean) => void;
-  state: boolean;
+  handleClick?: (state: boolean) => void;
+  state?: boolean;
 }
 
 const PanelControl = ({

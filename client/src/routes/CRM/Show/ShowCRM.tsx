@@ -21,6 +21,14 @@ import DatePickerUI from "../../../UI/Date Picker/DatePickerUI";
 import SelectUI from "../../../UI/Select/SelectUI";
 import { IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import {
+  correspondence,
+  CorrespondenceScheme,
+} from "../../../API/data/correspondence";
+import { request, RequestScheme } from "../../../API/data/request";
+import InputFile from "../../../components/File Service/File Service Input File/InputFile";
+
+import FileList from "../../../components/File Service/File Service File List/FileList";
 
 const ShowCRM = () => {
   const { id: orgId } = useParams();
@@ -99,134 +107,6 @@ const ShowCRM = () => {
       ? requestHeaders
       : [];
 
-  interface CorrespondenceScheme {
-    id: number;
-    incomingNumber: string;
-    sender: string;
-    topic: string;
-    dateReceived: string;
-    status: string;
-    term: string;
-    file: string;
-  }
-
-  const correspondence: CorrespondenceScheme[] = [
-    {
-      id: 1,
-      incomingNumber: "ВИ-4126",
-      sender: "Чамоати дехоти Пунук",
-      topic: "Ивази рохбари МБ",
-      dateReceived: "22.01.2025 09:00",
-      status: "На резолюции",
-      term: "24.01.2025",
-      file: "Документ.pdf",
-    },
-    {
-      id: 2,
-      incomingNumber: "ВИ-4127",
-      sender: "ООО 'Прогресс Трейд'",
-      topic: "Запрос коммерческого предложения",
-      dateReceived: "22.01.2025 11:30",
-      status: "На резолюции",
-      term: "25.01.2025",
-      file: "Запрос_Прогресс.pdf",
-    },
-    {
-      id: 3,
-      incomingNumber: "ВИ-4128",
-      sender: "МУП 'Городское хозяйство'",
-      topic: "Согласование сметы на ремонт",
-      dateReceived: "23.01.2025 10:15",
-      status: "На резолюции",
-      term: "26.01.2025",
-      file: "Смета_ремонт.pdf",
-    },
-    {
-      id: 4,
-      incomingNumber: "ВИ-4129",
-      sender: "АО 'Инвестстрой'",
-      topic: "Заключение договора на поставку материалов",
-      dateReceived: "24.01.2025 14:00",
-      status: "Завершено",
-      term: "28.01.2025",
-      file: "Договор_материалы.pdf",
-    },
-    {
-      id: 5,
-      incomingNumber: "ВИ-4130",
-      sender: "ООО 'Глобал Логистик'",
-      topic: "Рассмотрение претензии по поставке",
-      dateReceived: "25.01.2025 12:45",
-      status: "Завершено",
-      term: "29.01.2025",
-      file: "Претензия.pdf",
-    },
-    {
-      id: 6,
-      incomingNumber: "ВИ-4131",
-      sender: "Министерство экономики",
-      topic: "Проведение проверки деятельности",
-      dateReceived: "26.01.2025 09:00",
-      status: "Завершено",
-      term: "30.01.2025",
-      file: "Проверка_документ.pdf",
-    },
-    {
-      id: 7,
-      incomingNumber: "ВИ-4132",
-      sender: "Чамоати дехоти Чорк",
-      topic: "Запрос информации о выполнении плана",
-      dateReceived: "27.01.2025 10:30",
-      status: "Завершено",
-      term: "29.01.2025",
-      file: "Запрос_информация.pdf",
-    },
-  ];
-
-  // const correspondenceRow = correspondence.map(
-  //   (cor: CorrespondenceScheme, index) => [
-  //     cor.id,
-  //     index + 1,
-  //     cor.incomingNumber,
-  //     cor.sender,
-  //     cor.topic,
-  //     cor.dateReceived,
-  //     cor.status,
-  //     cor.term,
-  //     cor.file,
-  //   ]
-  // );
-
-  // console.log(correspondence);
-
-  interface RequestScheme {
-    id: number;
-    reqType: string;
-    applicant: string;
-    organization: string;
-    date: string;
-    status: string;
-  }
-
-  const request: RequestScheme[] = [
-    {
-      id: 1,
-      reqType: "Смена главного бухгалтера",
-      applicant: "Давлатов Парвиз",
-      organization: "Мактаби тахсилоти миёнаи умумии №75",
-      date: "10.02.2025",
-      status: "Завершено",
-    },
-    {
-      id: 2,
-      reqType: "Смена руководителя",
-      applicant: "Шоев Диловар",
-      organization: "Мактаби тахсилоти миёнаи умумии №75",
-      date: "11.02.2025",
-      status: "Завершено",
-    },
-  ];
-
   const handleCurrentRow = (
     correspondenceRow: CorrespondenceScheme[],
     requestRow: RequestScheme[]
@@ -290,6 +170,8 @@ const ShowCRM = () => {
         files: [],
       },
     });
+
+  console.log(organizationsById);
 
   return (
     <main className="show-crm">
@@ -527,35 +409,56 @@ const ShowCRM = () => {
           headAccountantName="km"
         /> */}
       </section>
-      <TitleSection title="Данные по модулям" />
-      <section className="section-tabs">
-        <ul className="wrapper-tabs">
-          {modulesTabs.map((e) => {
-            return (
-              <li
-                onClick={() => handleChangeStatus(e)}
-                key={e.id}
-                className={`tab ${e.status ? "tab-active" : ""}`}
-              >
-                <p className={e.status ? "active" : ""}>{e.item}</p>
-              </li>
-            );
-          })}
-          {/* <li className="tab">
+      {editActive && (
+        <>
+          <TitleSection title="Документы" />
+          <section>
+            <div className="wrapper-documents">
+              <InputFile setValue={setValue} getValues={getValues} />
+              {organizationsById?.files.map((file: File, index: number) => (
+                <FileList key={index} item={file} />
+              ))}
+              {/* {formValues.files &&
+            formValues.files.map((file: File, index: number) => (
+              <FileList key={index} item={file} />
+            ))} */}
+            </div>
+          </section>
+        </>
+      )}
+      {!editActive && (
+        <>
+          <TitleSection title="Данные по модулям" />
+          <section className="section-tabs">
+            <ul className="wrapper-tabs">
+              {modulesTabs.map((e) => {
+                return (
+                  <li
+                    onClick={() => handleChangeStatus(e)}
+                    key={e.id}
+                    className={`tab ${e.status ? "tab-active" : ""}`}
+                  >
+                    <p className={e.status ? "active" : ""}>{e.item}</p>
+                  </li>
+                );
+              })}
+              {/* <li className="tab">
             <p className={isActive ? "active" : ""}>Корреспонденция</p>
           </li>
           <li className={`tab ${isActive ? "tab-active" : ""}`}>
             <p className="">Заявки</p>
           </li> */}
-        </ul>
-        <div className="wrapper-registry">
-          <Registry
-            headersProps={headers}
-            rowsProps={rows}
-            status={{ active: "Завершено", inactive: "На резолюции" }}
-          />
-        </div>
-      </section>
+            </ul>
+            <div className="wrapper-registry">
+              <Registry
+                headersProps={headers}
+                rowsProps={rows}
+                status={{ active: "Завершено", inactive: "На резолюции" }}
+              />
+            </div>
+          </section>
+        </>
+      )}
     </main>
   );
 };

@@ -14,7 +14,7 @@ interface TProps {
   borderRadiusStyle: string;
   heightStyle: string;
   widthStyle: string;
-  editValue: any;
+  editValue?: any;
 }
 
 const DatePickerUI = ({

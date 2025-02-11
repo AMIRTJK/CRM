@@ -17,7 +17,7 @@ interface TProps {
   heightStyle?: string;
   widthStyle: string;
   data: TData[];
-  editValue: any;
+  editValue?: any;
 }
 
 const SelectUI = ({
