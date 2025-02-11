@@ -41,3 +41,16 @@ section {
 .wrapper-registry {
   padding: 40px;
 }
+
+.wrapper-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.wrapper-user-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 49%;
+}

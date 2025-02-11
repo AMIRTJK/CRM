@@ -12,6 +12,9 @@ import CardOrganization from "../../../UI/Card of Organization/CardOrganization"
 import Orgcard from "../../Orgcard/Orgcard";
 import Registry from "../../../components/Registry/Registry";
 import { dataFilter } from "../../../API/data/dataFilter";
+import OrganizationCard from "../../../components/Card/Organization Card/OrganizationCard";
+import UserCard from "../../../components/Card/User Card/UserCard";
+import { userCards } from "../../../API/data/userCards";
 
 const ShowCRM = () => {
   const { id: orgId } = useParams();
@@ -251,7 +254,8 @@ const ShowCRM = () => {
 
   const rows = handleCurrentRow(correspondence, request);
 
-  console.log(rows);
+  const directorCard = userCards.find((e) => e.role === "Директор");
+  const accounterCard = userCards.find((e) => e.role === "Главный бухгалтер");
 
   return (
     <main className="show-crm">
@@ -259,8 +263,16 @@ const ShowCRM = () => {
       <PanelControl editButtonState={false} saveButtonState={true} />
       <TitleSection title="Карточка организации" />
       <section>
+        <div className="wrapper-cards">
+          <OrganizationCard data={organizationsById} />
+          <div className="wrapper-user-cards">
+            <UserCard data={directorCard} />
+            <UserCard data={accounterCard} />
+          </div>
+        </div>
+
         {/* <CardOrganization item={organizationsById} /> */}
-        <Orgcard
+        {/* <Orgcard
           data={organizationsById}
           orgName="km"
           orgType="bo"
@@ -268,7 +280,7 @@ const ShowCRM = () => {
           orglocation="испечак 2"
           directorName="km"
           headAccountantName="km"
-        />
+        /> */}
       </section>
       <TitleSection title="Данные по модулям" />
       <section className="section-tabs">
