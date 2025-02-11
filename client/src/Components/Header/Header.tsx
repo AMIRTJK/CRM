@@ -9,6 +9,7 @@ import {
   Tooltip,
   IconButton,
   Avatar,
+  Button,
 } from "@mui/material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -30,7 +31,7 @@ const Header: React.FC = () => {
   };
 
   // DefName
-  const defName = "Кимки Кимкиев";
+  const defName = "Норов Махмуд";
   return (
     <>
       <header>
@@ -57,7 +58,7 @@ const Header: React.FC = () => {
               <ul className="nav__list">
                 <li className="nav__item">
                   <Link to="/route1" className="nav__item--link">
-                    Все услуги
+                    Главная
                   </Link>
                 </li>
                 <li className="nav__item">
@@ -93,17 +94,22 @@ const Header: React.FC = () => {
                 </g>
               </svg>
               <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Открыть настройки" className="header__tooltip">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="User Avatar" src={defName} />
-                    <p className="header__right-uname">{defName}</p>
-                  </IconButton>
+                <Tooltip title="" className="header__tooltip">
+                  <div>
+                    <Button
+                      className="wrapper-profile"
+                      onClick={handleOpenUserMenu}
+                    >
+                      <Avatar alt="User Avatar" src={defName} />
+                      <p className="header__right-uname">{defName}</p>
+                    </Button>
+                  </div>
                 </Tooltip>
 
                 {/* Выпадающее меню */}
                 <Menu
                   sx={{
-                    mt: "45px", // Выставление отступа меню
+                    mt: "60px", // Выставление отступа меню
                     "& .MuiMenu-paper": {
                       padding: "0 10px",
                       borderRadius: "7px",

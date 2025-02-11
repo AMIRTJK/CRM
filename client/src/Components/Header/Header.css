@@ -52,19 +52,35 @@ header {
 /* Header-right */
 .header__right {
   display: flex;
+  align-items: center;
   gap: 20px;
+}
+
+.header__righ-svg {
+  stroke: rgba(128, 128, 128, 0.95);
+  transition: all 0.3s;
 }
 
 .header__righ-svg:hover {
   transition: stroke 0.2s ease-in-out;
-  stroke: rgba(128, 128, 128, 0.95);
+  stroke: rgba(158, 158, 158, 0.95);
+  cursor: pointer;
 }
 
 .header__tooltip {
   display: flex;
   gap: 10px;
 }
-.header__right-uname {
-  font-size: 18px;
-  font-weight: 600;
+
+.header__right .wrapper-profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 15px;
+  text-decoration: none;
+  text-transform: none;
+  color: rgb(146, 146, 146);
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px;
 }
