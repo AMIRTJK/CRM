@@ -8,6 +8,7 @@ import { getOrganizations } from "../../API/services/organizations/getOrganizati
 import { queryClient } from "../../API/hooks/queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { OrganizationScheme } from "../../API/services/organizations/OrganizationScheme";
+import { Button } from "@mui/material";
 
 const Crm = () => {
   const [organizations, setOrganizations] = useState<OrganizationScheme[]>([]);
@@ -56,7 +57,7 @@ const Crm = () => {
         <div className="panel-control-filter">
           <Filter data={dataFilter} />
           <Link to="/crm/create">
-            <button>Добавить</button>
+            <Button variant="contained">Добавить</Button>
           </Link>
         </div>
       </section>
