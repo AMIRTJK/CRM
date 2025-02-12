@@ -80,6 +80,11 @@ section {
   gap: 20px;
 }
 
+.info-navigate {
+  display: flex;
+  align-items: center;
+}
+
 .more-wrapper-info {
   display: flex;
   flex-direction: column;
@@ -90,6 +95,13 @@ section {
   font-size: 24px;
   color: #313131;
   text-align: center;
+  margin: 0 auto;
+}
+
+.more-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .more-wrapper-info .info-list {

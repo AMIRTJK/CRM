@@ -213,7 +213,7 @@ const ShowCRM = () => {
             </div>
             <ul className="info-list">
               <li>
-                <ul>
+                <ul className="more-info-list">
                   <li>
                     <CorporateFareOutlinedIcon sx={{ color: "#313131" }} />
                     <p>
@@ -242,7 +242,7 @@ const ShowCRM = () => {
                 </ul>
               </li>
               <li>
-                <ul>
+                <ul className="more-info-list">
                   <li>
                     <CalendarMonthOutlinedIcon sx={{ color: "#313131" }} />
                     <p>
@@ -272,7 +272,7 @@ const ShowCRM = () => {
                 </ul>
               </li>
               <li>
-                <ul>
+                <ul className="more-info-list">
                   <li>
                     <DatasetOutlinedIcon sx={{ color: "#313131" }} />
                     <p>
@@ -526,17 +526,6 @@ const ShowCRM = () => {
             />
           </form>
         )}
-
-        {/* <CardOrganization item={organizationsById} /> */}
-        {/* <Orgcard
-          data={organizationsById}
-          orgName="km"
-          orgType="bo"
-          orgInn="1123"
-          orglocation="испечак 2"
-          directorName="km"
-          headAccountantName="km"
-        /> */}
       </section>
       {editActive && (
         <>
@@ -547,10 +536,6 @@ const ShowCRM = () => {
               {organizationsById?.files.map((file: File, index: number) => (
                 <FileList key={index} item={file} />
               ))}
-              {/* {formValues.files &&
-            formValues.files.map((file: File, index: number) => (
-              <FileList key={index} item={file} />
-            ))} */}
             </div>
           </section>
         </>
