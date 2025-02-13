@@ -239,7 +239,7 @@ const CreateCRM = () => {
           />
           <SelectUI
             control={control}
-            nameValue="grbs"
+            nameValue="pbs"
             labelValue="ПБС"
             borderRadiusStyle="30px"
             widthStyle="48%"

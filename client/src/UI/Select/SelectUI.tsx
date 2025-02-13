@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SelectUI.css";
 import { Box, FormControl, InputLabel, MenuItem } from "@mui/material";
-import { Controller } from "react-hook-form";
+import { Controller, UseFormSetValue } from "react-hook-form";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { OrganizationScheme } from "../../API/services/organizations/OrganizationScheme";
 
 interface TData {
   id: number;
@@ -11,13 +12,14 @@ interface TData {
 
 interface TProps {
   control: any;
-  nameValue: string;
+  nameValue: keyof OrganizationScheme;
   labelValue: string;
   borderRadiusStyle: string;
   heightStyle?: string;
   widthStyle: string;
   data: TData[];
   editValue?: any;
+  setValue?: UseFormSetValue<OrganizationScheme>; // используем тип из react-hook-form
 }
 
 const SelectUI = ({
@@ -28,19 +30,26 @@ const SelectUI = ({
   widthStyle,
   data,
   editValue,
+  setValue,
 }: TProps) => {
+  useEffect(() => {
+    if (editValue !== undefined) {
+      setValue(nameValue as keyof OrganizationScheme, editValue);
+    }
+  }, [editValue, nameValue, setValue]);
+
   return (
     <Box width={widthStyle}>
       <Controller
         name={nameValue}
         control={control}
-        defaultValue=""
+        defaultValue={editValue || ""}
         render={({ field }) => (
           <FormControl fullWidth>
             <InputLabel id="terCode-label">{labelValue}</InputLabel>
             <Select
               {...field}
-              value={editValue ? editValue : ""}
+              value={field.value || ""}
               id={nameValue}
               labelId={`${nameValue}-label`}
               label={labelValue}

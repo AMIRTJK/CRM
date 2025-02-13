@@ -332,6 +332,7 @@ const ShowCRM = () => {
               borderRadiusStyle="30px"
               heightStyle="90%"
               widthStyle="48%"
+              setValue={setValue}
             />
             <Input
               editValue={organizationsById?.identificator}
@@ -341,6 +342,7 @@ const ShowCRM = () => {
               borderRadiusStyle="30px"
               heightStyle="90%"
               widthStyle="48%"
+              setValue={setValue}
             />
             <Input
               editValue={organizationsById?.name}
@@ -350,6 +352,7 @@ const ShowCRM = () => {
               borderRadiusStyle="30px"
               heightStyle="90%"
               widthStyle="48%"
+              setValue={setValue}
             />
             <Input
               editValue={organizationsById?.docNo}
@@ -359,6 +362,7 @@ const ShowCRM = () => {
               borderRadiusStyle="30px"
               heightStyle="90%"
               widthStyle="48%"
+              setValue={setValue}
             />
             <DatePickerUI
               editValue={organizationsById?.dateDoc}
@@ -368,6 +372,7 @@ const ShowCRM = () => {
               borderRadiusStyle="30px"
               heightStyle="90%"
               widthStyle="48%"
+              setValue={setValue}
             />
             <Input
               editValue={organizationsById?.address}
@@ -377,6 +382,7 @@ const ShowCRM = () => {
               borderRadiusStyle="30px"
               heightStyle="90%"
               widthStyle="48%"
+              setValue={setValue}
             />
             <SelectUI
               editValue={organizationsById?.terCode}
@@ -390,6 +396,7 @@ const ShowCRM = () => {
                 { id: 2, title: "Хатлон" },
                 { id: 3, title: "Душанбе" },
               ]}
+              setValue={setValue}
             />
             <SelectUI
               editValue={organizationsById?.unitAccountingTer}
@@ -403,6 +410,7 @@ const ShowCRM = () => {
                 { id: 2, title: "101-шаҳри Душанбе" },
                 { id: 3, title: "102-ноҳияи Синои" },
               ]}
+              setValue={setValue}
             />
             <SelectUI
               editValue={organizationsById?.grbsResonsible}
@@ -416,6 +424,7 @@ const ShowCRM = () => {
                 { id: 2, title: "104-шаҳри Душанбе" },
                 { id: 3, title: "105-ноҳияи Синои" },
               ]}
+              setValue={setValue}
             />
             <SelectUI
               editValue={organizationsById?.grbs}
@@ -439,6 +448,7 @@ const ShowCRM = () => {
                     "101-101-Дастгоҳи иҷроияи Президенти Ҷумҳурии Тоҷикистон",
                 },
               ]}
+              setValue={setValue}
             />
             <SelectUI
               editValue={organizationsById?.pbs}
@@ -463,6 +473,7 @@ const ShowCRM = () => {
                     "10703002-10703002-Бозрасии назорати давлатии тухмӣ дар вилояти Хатлон",
                 },
               ]}
+              setValue={setValue}
             />
             <SelectUI
               editValue={organizationsById?.bz}
@@ -482,6 +493,7 @@ const ShowCRM = () => {
                   title: "63583",
                 },
               ]}
+              setValue={setValue}
             />
             <SelectUI
               editValue={organizationsById?.details}
@@ -501,6 +513,7 @@ const ShowCRM = () => {
                   title: "12345",
                 },
               ]}
+              setValue={setValue}
             />
             <IconButton>
               <AddIcon />
@@ -523,6 +536,7 @@ const ShowCRM = () => {
                   title: "Министерство финансов",
                 },
               ]}
+              setValue={setValue}
             />
           </form>
         )}
