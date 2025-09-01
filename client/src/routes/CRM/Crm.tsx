@@ -57,7 +57,7 @@ const Crm = () => {
         <div className="panel-control-filter">
           <Filter data={dataFilter} />
           <Link to="/crm/create">
-            <Button variant="contained">Добавить</Button>
+            <Button variant="contained">Создать</Button>
           </Link>
         </div>
       </section>
